@@ -7,7 +7,7 @@
 		<div id="main">
 			<div id="top">
 				<img id="headerimage" src="Header.png"><img>
-				<img src="logo.png"></img>
+				<img src="Logo.png"></img>
 				<div id="header">
 					<ul id="navigation">
 						<li><a href="index.html">Home</a></li>
