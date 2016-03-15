@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html>
-<body>
-
 <?php
-echo "My first PHP script!";
+echo "My first PHP script1!";
 ?>
 
 
@@ -25,6 +21,3 @@ echo "My first PHP script!";
     if (!$so "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
     }*/
 ?>
-
-</body>
-</html>
