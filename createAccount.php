@@ -16,7 +16,7 @@
     $stmt;
 
     if (!($stmt = $mysqli->prepare("INSERT INTO Users(NetId, Sex, Name, Birthday, Height, Weight, Password)"
-            + "VALUES (?, ?, ?, ?, ?, ?, ?)"))) {
+            + " VALUES (?, ?, ?, ?, ?, ?, ?)"))) {
         echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
     }
 
