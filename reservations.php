@@ -7,7 +7,7 @@ echo "My first PHP script!";
 ?>
 
 
-<?php
+/*<?php
     $mysqli = new mysqli("puglies2.web.engr.illinois.edu", "puglies2_tbd4", "arcarctbd4", "puglies2_arc");
     if ($mysqli->connect_errno) {
         echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
@@ -22,10 +22,9 @@ echo "My first PHP script!";
         echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
     }
 
-    if (!$stmt->execute()) {
-        echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
-    }*/
-?>
+    if (!$so "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+    }
+?>*/
 
 </body>
 </html>
