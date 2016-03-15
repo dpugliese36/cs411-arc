@@ -9,10 +9,10 @@
     $password = $_POST['password'];
     $password = hash("sha256", $password);
 
-    // $mysqli = new mysqli("puglies2.web.engr.illinois.edu", "puglies2_tbd4", "arcarctbd4", "puglies2_arc");
-    // if ($mysqli->connect_errno) {
-    //     echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
-    // }
+    $mysqli = new mysqli("puglies2.web.engr.illinois.edu", "puglies2_tbd4", "arcarctbd4", "puglies2_arc");
+    if ($mysqli->connect_errno) {
+        echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
 
     // if (!($stmt = $mysqli->prepare("INSERT INTO User (NetId, Sex, Name, Birthday, Height, Weight, Password)"
     //         . " VALUES (?, ?, ?, ?, ?, ?, ?)"))) {
