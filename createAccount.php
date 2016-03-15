@@ -34,6 +34,8 @@
     $stmt = "INSERT INTO User (NetId, Sex, Name, Birthday, Height, Weight, Password) "
         . "VALUES ('{$netID}', '{$sex}', '{$name}', '{$bday}', '{$height}', '{$weight}', '{$password}';";
 
+    echo $stmt;
+
     $result = $mysqli->query($stmt);
 
     if ($result === TRUE) {
