@@ -13,6 +13,8 @@
         echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
 
+    $stmt;
+
     if (!($stmt = $mysqli->prepare("INSERT INTO Users(NetId, Sex, Name, Birthday, Height, Weight, Password)"
             + "VALUES ((1), (2), (3), (4), (5), (6), (7))"))) {
         echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
