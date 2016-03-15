@@ -25,6 +25,8 @@
         echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
     }
 
+    var_dump($stmt);
+
     if (!$stmt->execute()) {
         echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
     }
