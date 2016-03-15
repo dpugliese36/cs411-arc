@@ -33,9 +33,7 @@
             echo "<script type='text/javascript'>window.location = '/';</script>";
         }
         else {
-            $_SESSION['error'] = "Incorrect netId or password";
-
-            echo "<script type='text/javascript'>window.location = '/signin.php';</script>";
+            echo "<script type='text/javascript'>alert('Incorrect netId or password'); window.location = '/signin.php';</script>";
         }
     }
 ?>
