@@ -7,13 +7,13 @@ echo "My first PHP script!";
 ?>
 
 
-/*<?php
-    $mysqli = new mysqli("puglies2.web.engr.illinois.edu", "puglies2_tbd4", "arcarctbd4", "puglies2_arc");
+<?php
+    /*$mysqli = new mysqli("puglies2.web.engr.illinois.edu", "puglies2_tbd4", "arcarctbd4", "puglies2_arc");
     if ($mysqli->connect_errno) {
         echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
 
-    /*if (!($stmt = $mysqli->prepare("INSERT INTO Users(NetId, Sex, Name, Birthday, Height, Weight, Password)"
+    if (!($stmt = $mysqli->prepare("INSERT INTO Users(NetId, Sex, Name, Birthday, Height, Weight, Password)"
             + "VALUES ((1), (2), (3), (4), (5), (6), (7))"))) {
         echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
     }
@@ -23,8 +23,8 @@ echo "My first PHP script!";
     }
 
     if (!$so "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
-    }
-?>*/
+    }*/
+?>
 
 </body>
 </html>
