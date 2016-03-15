@@ -17,8 +17,8 @@
 					</ul>
 					<ul id="account">
 						<?php if (array_key_exists('username', $_SESSION)): ?>
-							<li>Logged in as <?php echo $_SESSION['username']; ?></li>
 							<li><a href="logout.php">Log Out</a></li>
+							<li>Logged in as <?php echo $_SESSION['username']; ?></li>
 						<?php else: ?>
 							<li><a href="index.php">Log In</a></li>
 							<li><a href="signup.php">Join</a></li>
