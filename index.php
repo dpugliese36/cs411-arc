@@ -13,7 +13,7 @@
 						<li><a href="index.html">Home</a></li>
 						<li><a href="index.html">About</a></li>
 						<li><a href="index.html">Activities</a></li>
-						<li><a href="reservations.php">Reservations</a></li>
+						<li><a href="index.html">Reservations</a></li>
 					</ul>
 					<ul id="account">
 						<li><a href="index.html">Log In</a></li>

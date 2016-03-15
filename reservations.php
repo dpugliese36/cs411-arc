@@ -1,27 +1,19 @@
-<!DOCTYPE html>
-<html>
-	<body>
+<?php
+    $mysqli = new mysqli("puglies2.web.engr.illinois.edu", "puglies2_tbd4", "arcarctbd4", "puglies2_arc");
+    if ($mysqli->connect_errno) {
+        echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
 
-		<?php
-			echo "My first PHP script!";
-		?>
+    /*if (!($stmt = $mysqli->prepare("INSERT INTO Users(NetId, Sex, Name, Birthday, Height, Weight, Password)"
+            + "VALUES ((1), (2), (3), (4), (5), (6), (7))"))) {
+        echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+    }
 
-		<?php
-		$servername = "http://puglies2.web.engr.illinois.edu";
-		$username = "puglies2_tbd4";
-		$password = "arcarctbd4";
+    if (!$stmt->bind_param("sssssss", $netID, $sex, $name, $bday, $height, $weight, hash("sha256", $password))) {
+        echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+    }
 
-		try {
-		    $conn = new PDO("mysql:host=$servername;dbname=myDB", $username, $password);
-		    // set the PDO error mode to exception
-		    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		    echo "Connected successfully"; 
-		    }
-		catch(PDOException $e)
-		    {
-		    echo "Connection failed: " . $e->getMessage();
-		    }
-		?>
-
-	</body>
-</html>
+    if (!$stmt->execute()) {
+        echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+    }*/
+?>
