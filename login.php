@@ -35,7 +35,7 @@
         else {
             $_SESSION['error'] = "Incorrect netId or password";
 
-            echo "<script type='text/javascript'>window.location = 'puglies2.web.engr.illinois.edu/signin.php';</script>";
+            echo "<script type='text/javascript'>window.location = '/signin.php';</script>";
         }
     }
 ?>
