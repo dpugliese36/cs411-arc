@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+echo "My first PHP script!";
+?>
+
+
 <?php
     $mysqli = new mysqli("puglies2.web.engr.illinois.edu", "puglies2_tbd4", "arcarctbd4", "puglies2_arc");
     if ($mysqli->connect_errno) {
@@ -17,3 +26,6 @@
         echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
     }*/
 ?>
+
+</body>
+</html>
