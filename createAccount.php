@@ -14,23 +14,20 @@
         echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
 
-    // if (!($stmt = $mysqli->prepare("INSERT INTO User (NetId, Sex, Name, Birthday, Height, Weight, Password)"
-    //         + " VALUES (?, ?, ?, ?, ?, ?, ?)"))) {
-    //     echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
-    // }
+    if (!($stmt = $mysqli->prepare("INSERT INTO User (NetId, Sex, Name, Birthday, Height, Weight, Password)"
+            . " VALUES (?, ?, ?, ?, ?, ?, ?)"))) {
+        echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+    }
 
-    // var_dump($stmt);
+    var_dump($stmt);
 
-    // if (!$stmt->bind_param("sssssss", $netID, $sex, $name, $bday, $height, $weight, hash("sha256", $password))) {
-    //     echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
-    // }
+    if (!$stmt->bind_param("sssssss", $netID, $sex, $name, $bday, $height, $weight, hash("sha256", $password))) {
+        echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+    }
 
-    // if (!$stmt->execute()) {
-    //     echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
-    // }
-    $stmt = "INSERT INTO User (NetId, Sex, Name, Birthday, Height, Weight, Password) VALUES ('{$netId}')";
-
-    echo $stmt;
+    if (!$stmt->execute()) {
+        echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+    }
 
     // $result = $mysqli->query($stmt);
 
