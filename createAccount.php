@@ -20,6 +20,8 @@
         echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
     }
 
+    var_dump($stmt);
+
     if (!$stmt->bind_param("sssssss", $netID, $sex, $name, $bday, $height, $weight, hash("sha256", $password))) {
         echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
     }
