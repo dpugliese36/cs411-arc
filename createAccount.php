@@ -19,13 +19,13 @@
         echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
     }
 
-    var_dump($stmt);
+    $stmt->debugDumpParams();
 
     if (!$stmt->bind_param("sssssis", $netID, $sex, $name, $bday, $height, $weight, $password)) {
         echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
     }
 
-    var_dump($stmt);
+    $stmt->debugDumpParams();
 
     if (!$stmt->execute()) {
         echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
