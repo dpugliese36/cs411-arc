@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     $netId = $_POST['netID'];
     $bday = $_POST['bday'];
     $name = $_POST['name'];
