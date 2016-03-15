@@ -28,10 +28,9 @@
     // if (!$stmt->execute()) {
     //     echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
     // }
-    $stmt = "User (NetId, Sex, Name, Birthday, Height, Weight, Password) " +
-        "VALUES ('{$netID}', '{$sex}', '{$name}', '{$bday}', '{$height}', '{$weight}', '{$password}'";
+    $stmt = "User (NetId, Sex, Name, Birthday, Height, Weight, Password) "
 
-    echo "User";
+    echo $stmt;
 
     // $result = $mysqli->query($stmt);
 
