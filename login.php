@@ -30,7 +30,7 @@
             $_SESSION['weight'] = $weight;
             $_SESSION['sex'] = $sex;
 
-            include("index.php");
+            echo "<script type='text/javascript'>window.location = '/';</script>";
         }
         else {
             $_SESSION['error'] = "Incorrect netId or password";
