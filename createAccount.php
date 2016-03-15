@@ -31,7 +31,7 @@
     $stmt = "User (NetId, Sex, Name, Birthday, Height, Weight, Password) " +
         "VALUES ('{$netID}', '{$sex}', '{$name}', '{$bday}', '{$height}', '{$weight}', '{$password}'";
 
-    echo $stmt;
+    echo "User";
 
     // $result = $mysqli->query($stmt);
 
