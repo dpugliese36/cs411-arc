@@ -26,15 +26,7 @@
     if (!$stmt->execute()) {
         echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
     }
-
-    // $stmt = "INSERT INTO User (NetId, Sex, Name, Birthday, Height, Weight, Password) "
-    //     . "VALUES ('{$netId}', '{$sex}', '{$name}', '{$bday}', '{$height}', '{$weight}', '{$password}');";
-
-    // $result = $mysqli->query($stmt);
-
-    // if ($result === TRUE) {
-    //     echo "New record created successfully";
-    // } else {
-    //     echo "Error: " . $mysqli->error;
-    // }
+    else {
+        echo "Account Created";
+    }
 ?>
