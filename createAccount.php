@@ -28,7 +28,7 @@
     // if (!$stmt->execute()) {
     //     echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
     // }
-    $stmt = "INSERT INTO User (NetId, Sex, Name, Birthday, Height, Weight, Password) ";
+    $stmt = "INSERT INTO User (NetId, Sex, Name, Birthday, Height, Weight, Password) VALUES ()";
 
     echo $stmt;
 
