@@ -1,4 +1,5 @@
 <?php
+
     $password = $_POST['password'];
     $netId = $_POST['netID'];
     $bday = $_POST['bday'];
@@ -24,4 +25,6 @@
     if (!$stmt->execute()) {
         echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
     }
+
+    echo "Account Created";
 ?>
