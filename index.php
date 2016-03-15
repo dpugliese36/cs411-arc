@@ -10,14 +10,19 @@
 				<img src="Logo.png"></img>
 				<div id="header">
 					<ul id="navigation">
-						<li><a href="index.html">Home</a></li>
-						<li><a href="index.html">About</a></li>
-						<li><a href="index.html">Activities</a></li>
-						<li><a href="index.html">Reservations</a></li>
+						<li><a href="index.php">Home</a></li>
+						<li><a href="index.php">About</a></li>
+						<li><a href="index.php">Activities</a></li>
+						<li><a href="index.php">Reservations</a></li>
 					</ul>
 					<ul id="account">
-						<li><a href="index.html">Log In</a></li>
-						<li><a href="index.html">Join</a></li>
+						<?php if (array_key_exists('username', $_SESSION)): ?>
+							<li>Logged in as <?php echo $_SESSION['username']; ?></li>
+							<li><a href="logout.php">Log Out</a></li>
+						<?php else: ?>
+							<li><a href="index.php">Log In</a></li>
+							<li><a href="signup.php">Join</a></li>
+						<?php endif; ?>
 					</ul>
 				</div>
 			</div>

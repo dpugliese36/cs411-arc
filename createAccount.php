@@ -26,6 +26,9 @@
     if (!$stmt->execute()) {
         echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
     }
+    else {
+        $_SESSION['username'] = $netId;
+    }
 
     // Return to index
     include("index.php");
