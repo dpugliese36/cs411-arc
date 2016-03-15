@@ -1,12 +1,12 @@
 <?php
 
-    $password = $_POST['password'];
     $netId = $_POST['netID'];
     $bday = $_POST['bday'];
     $name = $_POST['name'];
     $height = $_POST['height'];
     $weight = $_POST['weight'];
     $sex = $_POST['sex'];
+    $password = $_POST['password'];
 
     $mysqli = new mysqli("puglies2.web.engr.illinois.edu", "puglies2_tbd4", "arcarctbd4", "puglies2_arc");
     if ($mysqli->connect_errno) {
