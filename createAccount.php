@@ -1,13 +1,12 @@
 <?php
     session_start();
-    $netId = $_POST['netID'];
+    $netId = $_POST['netId'];
     $bday = $_POST['bday'];
     $name = $_POST['name'];
     $height = $_POST['height'];
     $weight = $_POST['weight'];
     $sex = $_POST['sex'];
-    $password = $_POST['password'];
-    $password = hash("sha256", $password);
+    $password = hash("sha256", $_POST['password']);
 
     $mysqli = new mysqli("puglies2.web.engr.illinois.edu", "puglies2_tbd4", "arcarctbd4", "puglies2_arc");
     if ($mysqli->connect_errno) {
@@ -27,7 +26,12 @@
         echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
     }
     else {
-        $_SESSION['username'] = $netId;
+        $_SESSION['netId'] = $netId;
+        $_SESSION['bday'] = $bday;
+        $_SESSION['name'] = $name;
+        $_SESSION['height'] = $height;
+        $_SESSION['weight'] = $weight;
+        $_SESSION['sex'] = $sex;
     }
 
     // Return to index
