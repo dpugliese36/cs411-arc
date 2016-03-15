@@ -28,8 +28,12 @@
     // if (!$stmt->execute()) {
     //     echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
     // }
-    $result = $mysqli->query("INSERT INTO User (NetId, Sex, Name, Birthday, Height, Weight, Password) " +
-        "VALUES ('{$netID}', '{$sex}', '{$name}', '{$bday}', '{$height}', '{$weight}', '{$password}'");
+    $stmt = "INSERT INTO User (NetId, Sex, Name, Birthday, Height, Weight, Password) " +
+        "VALUES ('{$netID}', '{$sex}', '{$name}', '{$bday}', '{$height}', '{$weight}', '{$password}'";
+
+    echo $stmt;
+
+    $result = $mysqli->query($stmt);
 
     if ($result === TRUE) {
         echo "New record created successfully";
