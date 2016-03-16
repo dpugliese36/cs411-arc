@@ -30,12 +30,10 @@
             $_SESSION['weight'] = $weight;
             $_SESSION['sex'] = $sex;
 
-            include("index.php");
+            echo "<script type='text/javascript'>window.location = '/';</script>";
         }
         else {
-            $_SESSION['error'] = "Incorrect netId or password";
-
-            echo "<script type='text/javascript'>window.location = puglies2.web.engr.illinois.edu/signin.php;</script>";
+            echo "<script type='text/javascript'>alert('Incorrect netId or password'); window.location = '/signin.php';</script>";
         }
     }
 ?>

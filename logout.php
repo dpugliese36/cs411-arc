@@ -1,5 +1,6 @@
 <?php
+    session_start();
     session_destroy();
 
-    include("index.php");
+    echo "<script type='text/javascript'>window.location = '/';</script>";
 ?>
