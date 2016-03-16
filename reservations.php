@@ -12,7 +12,7 @@
     }
 
     if (!($stmt = $mysqli->prepare("INSERT INTO Reservation(startTime, endTime, reservationNumber, netID)"
-            + "VALUES (?, ?, ?, ?"))) {
+            . " VALUES (?, ?, ?, ?"))) {
         echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
     }
 
