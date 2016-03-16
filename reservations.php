@@ -1,9 +1,4 @@
 <?php
-echo "My first PHP script1!";
-?>
-
-
-<?php
     session_start();
 	$startTime = $_POST['startTime'];
     $endTime = $_POST['endTime'];
