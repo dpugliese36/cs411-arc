@@ -26,5 +26,5 @@ echo "My first PHP script1!";
     }
 
     if (!$so "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
-    }*/
+    }
 ?>
