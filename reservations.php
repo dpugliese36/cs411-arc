@@ -25,6 +25,7 @@ echo "My first PHP script1!";
         echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
     }
 
-    if (!$so "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+    if (!$stmt->execute()) {
+        echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
     }
 ?>
