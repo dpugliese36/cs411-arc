@@ -3,7 +3,7 @@
     $netId = $_POST['netId'];
     $bday = $_POST['bday'];
     $first_name = $_POST['first_name'];
-    $lasst_name = $_POST['last_name'];
+    $last_name = $_POST['last_name'];
     $height = $_POST['height'];
     $weight = $_POST['weight'];
     $sex = $_POST['sex'];
