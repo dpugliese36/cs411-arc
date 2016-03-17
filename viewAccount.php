@@ -3,8 +3,8 @@
 <html>
     <body>
         <form action="editAccount.php" method="post">
-            First Name: <input type="text" name="first_name"/><br/>
-            Last Name: <input type="text" name="last_name"/><br/>
+            First Name: <input type="text" name="first_name" value="<?php echo $_SESSION['first_name']; ?>"/><br/>
+            Last Name: <input type="text" name="last_name" value="<?php echo $_SESSION['last_name']; ?>"/><br/>
             Birthday: <input type="date" name="bday" value="<?php echo $_SESSION['bday']; ?>"/><br/>
             Sex: <input type="text" name="sex" value="<?php echo $_SESSION['sex']; ?>"/><br/>
             Height: <input name="height" value="<?php echo $_SESSION['height']; ?>"/><br/>
