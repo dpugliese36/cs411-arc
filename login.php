@@ -21,7 +21,7 @@
             echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
         }
 
-        $stmt->bind_result($netId, $password, $sex, $first_name, $last_name, $bday, $height, $weight);
+        $stmt->bind_result($netId, $first_name, $last_name, $height, $weight, $bday, $sex, $password);
         if ($stmt->fetch()) {
             $_SESSION['netId'] = $netId;
             $_SESSION['bday'] = $bday;
