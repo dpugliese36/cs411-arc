@@ -3,7 +3,7 @@
 	$startTime = $_POST['startTime'];
     $endTime = $_POST['endTime'];
     #$reservationNumber = $_POST['reservationNumber'];
-    $netID = $_SESSION["netID"];
+    $netID = $_SESSION["netId"];
     $roomID = $_POST["roomID"];
     
     $sex = $_POST['sex'];
