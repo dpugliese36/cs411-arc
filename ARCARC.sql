@@ -43,7 +43,7 @@ CREATE TABLE Facility
 
 CREATE TABLE Reservation
 (
-    ID CHAR(8) NOT NULL,
+    ID INT NOT NULL,
     StartTime TIMESTAMP,
     EndTime TIMESTAMP,
     NetID VARCHAR(20),
@@ -147,7 +147,7 @@ INSERT INTO User VALUES ('mcyang4', 'Matthew', 'Yang', '6\'0', '150', '1994-01-0
 INSERT INTO User VALUES ('dzhu10', 'Douglas', 'Zhu', '6\'0', '150', '1994-01-01', 'M', '123456');
 INSERT INTO User VALUES ('cyuan10', 'Chufeng', 'Yuan', '5\'8', '150', '1994-01-01', 'M', '123456');
 
-INSERT INTO Reservation VALUES ('AC101101', '2015-03-14 14:00:00', "2015-03-14 15:00:00", 'cyuan10', 'A101');
+INSERT INTO Reservation VALUES (1, '2015-03-14 14:00:00', "2015-03-14 15:00:00", 'cyuan10', 'A101');
 
 INSERT INTO Needs VALUES ('cyuan10', 'Cardio');
 INSERT INTO Needs VALUES ('cyuan10', 'Upper Back');
