@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if ($_SESSION["username"] == "") {
+    if ($_SESSION["netId"] == "") {
         $netId = $_POST["netId"];
         $password = hash("sha256", $_POST['password']);
 
