@@ -33,17 +33,18 @@
                         <input class="smallText" type="text" name="netId" placeholder="netID"><br>
                         <input class="smallText" type="password" name="password" placeholder="Password"><br>
                         <input class="smallText" type="password" name="confirmpassword" placeholder="Confirm Password"><br>
-                        <input class="smallText" type="text" name="name" placeholder="Full Name"><br>
+                        <input class="smallText" type="text" name="first_name" placeholder="First Name"><br>
+                        <input class="smallText" type="text" name="last_name" placeholder="Last Name"><br>
                         <input class="smallText" type="date" name="bday" placeholder="Birthday (YYYY-MM-DD)"><br>
                         <input class="smallText" type="text" name="sex" placeholder="sex"><br>
-                        <div class="smallText"><input type="number" name="height" placeholder="height">
+                        <div class="smallText"><input name="height" placeholder="height">
                         <select name="htunit">
                             <option value="cm">cm</option>
                             <option value="inches">inches</option>
                         </select>
                         </div>
                         <br>
-                        <div class="smallText"><input type="number" name="weight" placeholder="weight">
+                        <div class="smallText"><input name="weight" placeholder="weight">
                         <select name="wtunit">
                             <option value="kg">kg</option>
                             <option value="lbs">lbs</option>
