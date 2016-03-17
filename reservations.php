@@ -4,7 +4,7 @@
     $endTime = $_POST['endTime'];
     #$reservationNumber = $_POST['reservationNumber'];
     $netID = $_SESSION["netID"];
-    $roomID = $_SESSION["roomID"];
+    $roomID = $_POST["roomID"];
     
     $sex = $_POST['sex'];
     $mysqli = new mysqli("puglies2.web.engr.illinois.edu", "puglies2_tbd4", "arcarctbd4", "puglies2_arc");
