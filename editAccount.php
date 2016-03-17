@@ -18,7 +18,7 @@
         echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
     }
 
-    if (!$stmt->bind_param("ssssss", $sex, $first_name, $last_name, $bday, $height, $weight, $netId)) {
+    if (!$stmt->bind_param("sssssss", $sex, $first_name, $last_name, $bday, $height, $weight, $netId)) {
         echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
     }
 
