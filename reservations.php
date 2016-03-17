@@ -25,6 +25,6 @@
         echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
     }
     else {
-        echo "Reservation made successfully!"
+        echo "Reservation made successfully!";
     }
 ?>
