@@ -34,7 +34,7 @@
             echo "<script type='text/javascript'>window.location = '/';</script>";
         }
         else {
-            echo "<script type='text/javascript'>alert('Incorrect netId or password '" . $stmt->error . "); window.location = '/signin.php';</script>";
+            echo "<script type='text/javascript'>alert('Incorrect netId or password: '" . $netId . " " . $password . "); window.location = '/signin.php';</script>";
         }
     }
 ?>
