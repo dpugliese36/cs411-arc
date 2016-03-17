@@ -29,7 +29,8 @@
     else {
         $_SESSION['netId'] = $netId;
         $_SESSION['bday'] = $bday;
-        $_SESSION['name'] = $name;
+        $_SESSION['first_name'] = $first_name;
+        $_SESSION['last_name'] = $last_name;
         $_SESSION['height'] = $height;
         $_SESSION['weight'] = $weight;
         $_SESSION['sex'] = $sex;

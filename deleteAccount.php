@@ -21,10 +21,13 @@
     else {
         $_SESSION['netId'] = '';
         $_SESSION['bday'] = '';
-        $_SESSION['name'] = '';
+        $_SESSION['first_name'] = $first_name;
+        $_SESSION['last_name'] = $last_name;
         $_SESSION['height'] = '';
         $_SESSION['weight'] = '';
         $_SESSION['sex'] = '';
+
+        session_destroy();
     }
 
     // Return to index
