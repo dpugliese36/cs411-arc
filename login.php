@@ -21,11 +21,12 @@
             echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
         }
 
-        $stmt->bind_result($netId, $password, $sex, $name, $bday, $height, $weight);
+        $stmt->bind_result($netId, $password, $sex, $first_name, $last_name, $bday, $height, $weight);
         if ($stmt->fetch()) {
             $_SESSION['netId'] = $netId;
             $_SESSION['bday'] = $bday;
-            $_SESSION['name'] = $name;
+            $_SESSION['first_name'] = $first_name;
+            $_SESSION['last_name'] = $last_name;
             $_SESSION['height'] = $height;
             $_SESSION['weight'] = $weight;
             $_SESSION['sex'] = $sex;
