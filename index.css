@@ -84,3 +84,70 @@ ul {
 li a:hover {
     background-color: #e70;
 }
+
+.bigText {
+	display: block;
+	margin: 0;
+	margin-left: auto;
+	margin-right: auto;
+	width: 35%;
+	font-family: sans-serif;
+	font-size: 16px;
+	box-shadow: none;
+	border-radius: none;
+	padding: 10px;
+	border: solid 1px #dcdcdc;
+	transition: box-shadow 0.3s, border 0.3s;
+}
+
+.bigText:focus{
+    border: solid 1px #7070e0;
+	box-shadow: 0 0 5px 1px #9696f6;
+}
+
+.smallText {
+	display: block;
+	margin: 0;
+	width: 25%;
+	font-family: sans-serif;
+	font-size: 12px;
+	box-shadow: none;
+	border-radius: none;
+	border: solid 1px #dcdcdc;
+	transition: box-shadow 0.3s, border 0.3s;
+}
+
+.smallText input{
+	width: 40%;
+}
+
+.smallText select {
+	width: 40%;
+	float: right;
+}
+
+form{
+	font-size: 4px;
+}
+
+input[type="submit"] {
+	display: block;
+    font-family: sans-serif;
+    background-color: #f80;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:6px;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    border: solid 1px #b60;
+	transition: box-shadow 0.3s;
+	margin: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+input[type="submit"]:hover {
+	box-shadow: 0 0 1px 1px #ff8800;
+}

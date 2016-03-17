@@ -1,11 +1,10 @@
-<?php session_start(); ?>
 <html>
-	<head>
+    <head>
 		<link rel="stylesheet" href="index.css"></style>
-		<title>ARC Recreation Coordinator</title>
+		<title>Make Reservation</title>
 	</head>
-	<body>
-		<div id="main">
+    <body>
+	    <div id="main">
 			<div id="top">
 				<img id="headerimage" src="Header.png"><img>
 				<img src="Logo.png"></img>
@@ -28,15 +27,22 @@
 				</div>
 			</div>
 			<div id="body">
-			<div id="pagetitle">Home Page</div>
-			<div id="content">
-				<b>Welcome to the ARC Recreation Coordinator, or ARC for short.</b><br>
-				
-				Enjoy the finest of placeholder text:<br><br>
-				
-				Today's weather will be a high of 66 degrees Fahrenheit and a low of 52. Cloudy. 35% chance of rain. Winds NNE 20 MPH. Tomorrow's forecast will be 35 degrees Fahrenheit and a low of 23. Snow. Winds ENE 25 MPH.
-			</div>
+			<div id="pagetitle">Make Your Reservation!</div>
+				<div id="content">
+					<form action="reservation.php" method="post">
+						<input class="bigText" type="date" name="start" placeholder="Start Time (YYYY-MM-DD)"><br/>
+						<input class="bigText" type="date" name="end" placeholder="End Time (YYYY-MM-DD)"><br/>
+						<select class="bigText" name="roomID">
+							<option value="ARC205">ARC205 - All Purpose Room</option>
+							<option value="ARC214">ARC214 - All Purpose Room</option>
+							<option value="ARC235">ARC235 - Gymnasium</option>
+							<option value="ARC178">ARC178 - Rock Climbing</option>
+							<option value="ARC136">ARC136 - Kitchen</option>
+						</select>
+						<br><input type="submit">
+					</form>
+				</div>
 			</div>
 		</div>
-  	</body>
+    </body>
 </html>
