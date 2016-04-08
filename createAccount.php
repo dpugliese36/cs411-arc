@@ -48,7 +48,7 @@
         $message = wordwrap($message, 70, "\r\n");
         $headers = 'From: arc-noreply@illinois.edu' . "\r\n" .
                     'X-Mailer: PHP/' . phpversion();
-        mail($to, $subject, $message, $headers);
+        mail($to, $subject, $message);
 
 
         $_SESSION['netId'] = $netId;
