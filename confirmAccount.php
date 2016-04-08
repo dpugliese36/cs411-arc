@@ -47,5 +47,5 @@
     }
 
     // Return to index
-    //echo "<script type='text/javascript'>window.location = '/';</script>";
+    echo "<script type='text/javascript'>window.location = '/';</script>";
 ?>
