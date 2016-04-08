@@ -28,11 +28,11 @@
     }
 
     if (!($stmt = $mysqli->prepare("INSERT INTO User (NetID, Sex, FirstName, LastName, Birthday, Height, Weight, Password, Verified, VerificationCode)"
-            . " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"))) {
+            . " VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0, ?)"))) {
         echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
     }
 
-    if (!$stmt->bind_param("ssssssssis", $netId, $sex, $first_name, $last_name, $bday, $height, $weight, $password, 0, $code)) {
+    if (!$stmt->bind_param("sssssssss", $netId, $sex, $first_name, $last_name, $bday, $height, $weight, $password, $code)) {
         echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
     }
 
