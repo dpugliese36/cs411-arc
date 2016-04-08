@@ -43,24 +43,16 @@
         $to = $netId . "@illinois.edu";
         $subject = "ARC Recreational Coordinator Account Confrimation";
         $message = "Thank you for signing up for ARC Recreational Coordinator!\r\n" .
-            "To confirm your email address click <a href='puglies2.web.engr.illinois.edu/confirmAccount.php?netId=" . 
-                $netId . "&code=" . $code . "'>here</a>.";
+            "To confirm your email address click the link below:\r\n" .
+            "puglies2.web.engr.illinois.edu/confirmAccount.php?netId=" . 
+            $netId . "&code=" . $code;
         $message = wordwrap($message, 70, "\r\n");
         $headers = 'From: arc-noreply@engr-cpanel2.engr.illinois.edu.edu' . "\r\n";
         $headers .= 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
         mail($to, $subject, $message);
-
-
-        $_SESSION['netId'] = $netId;
-        $_SESSION['bday'] = $bday;
-        $_SESSION['first_name'] = $first_name;
-        $_SESSION['last_name'] = $last_name;
-        $_SESSION['height'] = $height;
-        $_SESSION['weight'] = $weight;
-        $_SESSION['sex'] = $sex;
     }
 
     // Return to index
-    //echo "<script type='text/javascript'>window.location = '/';</script>";
+    echo "<script type='text/javascript'>window.location = '/';</script>";
 ?>
