@@ -46,8 +46,9 @@
             "To confirm your email address click <a href='puglies2.web.engr.illinois.edu/confirmAccount.php?netId=" . 
                 $netId . "&code=" . $code . "'>here</a>.";
         $message = wordwrap($message, 70, "\r\n");
-        $headers = 'From: arc-noreply@illinois.edu' . "\r\n" .
-                    'X-Mailer: PHP/' . phpversion();
+        $headers = 'From: arc-noreply@engr-cpanel2.engr.illinois.edu.edu' . "\r\n";
+        $headers .= 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
         mail($to, $subject, $message);
 
 
