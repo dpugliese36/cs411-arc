@@ -20,15 +20,29 @@
         echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
     }
 
-    $stmt->bind_result($netId, $first_name, $last_name, $height, $weight, $bday, $sex, $password);
+    $stmt->bind_result($netId, $first_name, $last_name, $height, $weight, $bday, $sex, $password, $verified, $code);
     if ($stmt->fetch()) {
-        $_SESSION['netId'] = $netId;
-        $_SESSION['bday'] = $bday;
-        $_SESSION['first_name'] = $first_name;
-        $_SESSION['last_name'] = $last_name;
-        $_SESSION['height'] = $height;
-        $_SESSION['weight'] = $weight;
-        $_SESSION['sex'] = $sex;
+        if (!($stmt2 = $mysqli->prepare("UPDATE User SET Verified=1"
+            . " WHERE NetID=?"))) {
+        echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+        }
+
+        if (!$stmt2->bind_param("s", $netId)) {
+            echo "Binding parameters failed: (" . $stmt2->errno . ") " . $stmt2->error;
+        }
+
+        if (!$stmt->execute()) {
+            echo "Execute failed: (" . $stmt2->errno . ") " . $stmt2->error;
+        }
+        else {
+            $_SESSION['netId'] = $netId;
+            $_SESSION['bday'] = $bday;
+            $_SESSION['first_name'] = $first_name;
+            $_SESSION['last_name'] = $last_name;
+            $_SESSION['height'] = $height;
+            $_SESSION['weight'] = $weight;
+            $_SESSION['sex'] = $sex;
+        }
     }
 
     // Return to index
