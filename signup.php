@@ -30,7 +30,7 @@
             <div id="body">
             <div id="pagetitle">Make ARC Account</div>
                 <div id="content">
-                    <form action="createAccount.php" method="post">
+                    <form action="confirmAccount.php" method="post">
                         <input class="smallText" type="text" name="netId" placeholder="netID"><br>
                         <input class="smallText" type="password" name="password" placeholder="Password"><br>
                         <input class="smallText" type="password" name="confirmpassword" placeholder="Confirm Password"><br>
