@@ -32,7 +32,7 @@
             echo "Binding parameters failed: (" . $stmt2->errno . ") " . $stmt2->error;
         }
 
-        if (!$stmt->execute()) {
+        if (!$stmt2->execute()) {
             echo "Execute failed: (" . $stmt2->errno . ") " . $stmt2->error;
         }
         else {
@@ -47,5 +47,5 @@
     }
 
     // Return to index
-    echo "<script type='text/javascript'>window.location = '/';</script>";
+    //echo "<script type='text/javascript'>window.location = '/';</script>";
 ?>
