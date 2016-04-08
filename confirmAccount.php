@@ -23,7 +23,7 @@
     $stmt->bind_result($netId, $first_name, $last_name, $height, $weight, $bday, $sex, $password, $verified, $code);
     if ($stmt->fetch()) {
         $stmt->close();
-        if (!($stmt2 = $mysqli->prepare("UPDATE User SET Verified=1"
+        if (!($stmt2 = $mysqli->prepare("UPDATE User SET Verified=1, VerificationCode=NULL"
             . " WHERE NetID=?"))) {
         echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
         }
