@@ -9,7 +9,7 @@
             echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
         }
 
-        if (!($stmt = $mysqli->prepare("SELECT * FROM User WHERE NetID = ? AND Password = ?"))) {
+        if (!($stmt = $mysqli->prepare("SELECT * FROM User WHERE NetID = ? AND Password = ? AND Verified = 1"))) {
             echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
         }
 
