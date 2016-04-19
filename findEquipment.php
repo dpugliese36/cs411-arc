@@ -37,7 +37,7 @@ session_start();
 				<div id="content">
 					<div class="form">
 						<form action="findEquipment.php" method="post">
-						<div class="formlabel"><b>Purpose</b></div>
+						<div class="formlabel"><b>Equipment Type</b></div>
 						<select name="equipment">
 							<?php
 								$mysqli = new mysqli("puglies2.web.engr.illinois.edu", "puglies2_tbd4", "arcarctbd4", "puglies2_arc");
