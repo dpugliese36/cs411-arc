@@ -52,11 +52,12 @@ if (array_key_exists('equipment', $_POST)) {
 
     $stmt->bind_result($id, $name1, $building, $floor, $name2, $purpose);
     while ($stmt->fetch()) {
-        echo "<tr>";
+        // echo "<tr>";
 
-        echo "<td>" . $id . "</td><td>" . $building . "</td><td>" . $floor . "</td><td>" . $purpose . "</td>";
+        // echo "<td>" . $id . "</td><td>" . $building . "</td><td>" . $floor . "</td><td>" . $purpose . "</td>";
 
-        echo "</tr>";
+        // echo "</tr>";
+        echo $id;
     }
 
     echo "</table>";
