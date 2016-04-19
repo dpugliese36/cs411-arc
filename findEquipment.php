@@ -32,7 +32,7 @@ session_start();
 
 <?php
 if (array_key_exists('equipment', $_POST)) {
-    $equipmentType = "Treadmill";//$_POST['equipment'];
+    $equipmentType = $_POST['equipment'];
 
     $mysqli = new mysqli("puglies2.web.engr.illinois.edu", "puglies2_tbd4", "arcarctbd4", "puglies2_arc");
     if ($mysqli->connect_errno) {
@@ -43,7 +43,7 @@ if (array_key_exists('equipment', $_POST)) {
         echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
     }
 
-    if (!$stmt->bind_param("s", $$equipmentType)) {
+    if (!$stmt->bind_param("s", $equipmentType)) {
         echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
     }
 
@@ -51,26 +51,23 @@ if (array_key_exists('equipment', $_POST)) {
         echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
     }
 
-    // echo "<table><tr><th>ID #</th><th>Building</th><th>Floor</th><th>Purpose</th><tr>";
+    echo "<table><tr><th>ID #</th><th>Building</th><th>Floor</th><th>Purpose</th><tr>";
 
     if (!$stmt->bind_result($id, $building, $floor, $purpose)) {
         echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
     }
     if ($stmt->fetch()) {
-        // echo "<tr>";
+        echo "<tr>";
 
-        // echo "<td>" . $id . "</td><td>" . $building . "</td><td>" . $floor . "</td><td>" . $purpose . "</td>";
+        echo "<td>" . $id . "</td><td>" . $building . "</td><td>" . $floor . "</td><td>" . $purpose . "</td>";
 
-        // echo "</tr>";
-        echo $id;
+        echo "</tr>";
     }
-
-    echo "Done";
 
     $stmt->close();
     $mysqli->close();
 
-    // echo "</table>";
+    echo "</table>";
 
 }
 ?>
