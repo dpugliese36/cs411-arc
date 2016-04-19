@@ -185,7 +185,7 @@ li a:hover {
 	display: none;
 }
 
-table {
+.form table {
 	-webkit-touch-callout: none; /* iOS Safari */
 	-webkit-user-select: none;   /* Chrome/Safari/Opera */
 	-khtml-user-select: none;    /* Konqueror */
@@ -193,6 +193,47 @@ table {
 	-ms-user-select: none;       /* Internet Explorer/Edge */
 	user-select: none;  
 	cursor: default;
+	margin: 0;
+	min-width: 0;
+	border: solid 1px #dcdcdc;
+}
+
+table {
+	margin-left: auto;
+	margin-right: auto;
+	border: 2px solid #0000FF;
+	background-color: #DDDDFF;
+	border-spacing: 0px;
+	min-width: 400px;
+}
+
+tr:nth-child(odd) td {
+	background-color: #AAAAFF;
+}
+
+tr:nth-child(even) td {
+	background-color: #DDDDFF;
+}
+
+td {
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+tr {
+	font-size: 12px;
+}
+
+th {
+	background-color: #DDDDFF;
+	border-bottom: 2px solid #0000FF;
+	font-size: 18px;
+	padding-top: 2px;
+	padding-left: 4px;
+	padding-bottom: 2px;
+	text-align: center;
+	background-color: #CCCCFF;
+	color: #000066;
 }
 
 input[type="submit"] {

@@ -59,11 +59,31 @@ if (array_key_exists('purpose', $_POST)) {
                 $pickedFloor = $possible[$i][3];
             }
         }
-        shuffle($possible);
-        for ($i = 0; $i < 5; $i++) {
-            echo $possible[$i][1] . " in " . $possible[$i][2] . " on " . $possible[$i][3];
-            if ($i < count($possible) - 1) {
-                echo ", ";
+        if (count($picked) < 5) {
+            $pickedBuilding = $possible[0][2];
+
+            $picked = array();
+            //Try to find all in same building
+            for ($i = 0; $i < count($possible); $i++) {
+                if ($possible[$i][2] == $pickedBuilding) {
+                $picked[] = $possible[$i];
+                if (count($picked) == 5) {
+                    break;
+                }
+            }
+            else {
+                $picked = array();
+                $pickedBuilding = $possible[$i][2];
+            }
+            }
+            if (count($picked) < 5) {
+                shuffle($possible);
+                for ($i = 0; $i < 5; $i++) {
+                    echo $possible[$i][1] . " in " . $possible[$i][2] . " on " . $possible[$i][3];
+                    if ($i < count($possible) - 1) {
+                        echo ", ";
+                    }
+                }
             }
         }
     }

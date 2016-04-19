@@ -42,46 +42,36 @@
 								<option value="ARCentrance">ARC Entrance Level</option>
 								<option value="ARCupper">ARC Upper Level</option>
 							</select></div>
-							<div class="formlabel"><b>Recommended Use</b></div>
+							<!--<div class="formlabel"><b>Recommended Use</b></div>
 							<div class="forminput"><input class="formText" type="text"></div>
 							<div class="formlabel"></div>
-							<div class="forminfo"><span class="formText"><i>Example: 3x5 reps, 10:00 duration</i></span></div>
+							<div class="forminfo"><span class="formText"><i>Example: 3x5 reps, 10:00 duration</i></span></div>-->
 							<div class="formlabel"><b>Description/Notes</b></div>
 							<div class="forminput"><input class="formText" type="text"></div>
-							<div class="smallformlabel"><b>Upper Body</b></div>
-							<div class="smallforminput"><input class="formText" type="checkbox"></div>
-							<div class="smallformlabel"><b>Lower Body</b></div>
-							<div class="smallforminput"><input class="formText" type="checkbox"></div>
-							<div class="smallformlabel"><b>Cardio</b></div>
-							<div class="smallforminput"><input class="formText" type="checkbox"></div>
-							<div class="smallformlabel"><b>Biceps</b></div>
-							<div class="smallforminput"><input class="formText" type="checkbox"></div>
-							<div class="smallformlabel"><b>Chest</b></div>
-							<div class="smallforminput"><input class="formText" type="checkbox"></div>
-							<div class="smallformlabel"><b>Deltoids</b></div>
-							<div class="smallforminput"><input class="formText" type="checkbox"></div>
-							<div class="smallformlabel"><b>Forearms</b></div>
-							<div class="smallforminput"><input class="formText" type="checkbox"></div>
-							<div class="smallformlabel"><b>Latissimus Dorsi</b></div>
-							<div class="smallforminput"><input class="formText" type="checkbox"></div>
-							<div class="smallformlabel"><b>Rotator Cuff</b></div>
-							<div class="smallforminput"><input class="formText" type="checkbox"></div>
-							<div class="smallformlabel"><b>Trapezius</b></div>
-							<div class="smallforminput"><input class="formText" type="checkbox"></div>
-							<div class="smallformlabel"><b>Triceps</b></div>
-							<div class="smallforminput"><input class="formText" type="checkbox"></div>
-							<div class="smallformlabel"><b>Calves</b></div>
-							<div class="smallforminput"><input class="formText" type="checkbox"></div>
-							<div class="smallformlabel"><b>Glutes</b></div>
-							<div class="smallforminput"><input class="formText" type="checkbox"></div>
-							<div class="smallformlabel"><b>Hamstrings</b></div>
-							<div class="smallforminput"><input class="formText" type="checkbox"></div>
-							<div class="smallformlabel"><b>Quadriceps</b></div>
-							<div class="smallforminput"><input class="formText" type="checkbox"></div>
-							<div class="smallformlabel"><b>Shins</b></div>
-							<div class="smallforminput"><input class="formText" type="checkbox"></div>
-							<div class="smallformlabel"><b>Core</b></div>
-							<div class="smallforminput"><input class="formText" type="checkbox"></div>
+							<?php
+					            $mysqli = new mysqli("puglies2.web.engr.illinois.edu", "puglies2_tbd4", "arcarctbd4", "puglies2_arc");
+					            if ($mysqli->connect_errno) {
+					                echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+					            }
+
+					            if (!($stmt = $mysqli->prepare("SELECT Purpose FROM PurposeSet"))) {
+					                echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+					            }
+
+					            if (!$stmt->execute()) {
+					                echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+					            }
+
+					            $stmt->bind_result($name);
+					            while ($stmt->fetch()) {
+					                echo '<div class="smallformlabel"><b>' . $name . '</b></div>' . 
+					                		'<div class="smallforminput"><input class="formText" type="checkbox" name="'
+					                		. $name . '"></div>';
+					            }
+
+					            $stmt->close();
+					            $mysqli->close();
+					        ?>
 							<div class="formsubmit"><input type="submit" value="Add Equipment"/></div>
 						</form>
 					</div>
