@@ -37,30 +37,37 @@
 						<form method="post" action="createWorkout.php">
 							<div class="formlabel"><b>Current Needs/Goals</b></div>
 							<div class="forminput"><select id="needs" class="formText" name="delete" multiple>
-									<option>Upper Body</option>
-									<option>Cardio</option>
+									<option value="Upper Body">Upper Body</option>
+									<option value="Cardio">Cardio</option>
 								</select>
 							</div>
 							<div class="formsubmit"><input type="submit" formaction="workout.php" value="Delete Need"></div>
 							<div class="formlabel"><b>Add Need/Goal</b></div>
-							<div class="forminput"><select class="formText" name="add">
-								<option value="upperbody">Upper Body</option>
-								<option value="lowerbody">Lower Body</option>
-								<option value="cardio">Cardio</option>
-								<option value="biceps">Biceps</option>
-								<option value="chest">Chest</option>
-								<option value="deltoids">Deltoids</option>
-								<option value="forearms">Forearms</option>
-								<option value="latissimusdorsi">Latissimus Dorsi</option>
-								<option value="rotatorcuff">Rotator Cuff</option>
-								<option value="trapezius">Trapezius</option>
-								<option value="triceps">Triceps</option>
-								<option value="calves">Calves</option>
-								<option value="glutes">Glutes</option>
-								<option value="hamstrings">Hamstrings</option>
-								<option value="quadriceps">Quadriceps</option>
-								<option value="shins">Shins</option>
-								<option value="core">Core</option>
+							<div class="forminput">
+								<select class="formText" name="add">
+									<option value=""></option>
+									<?php
+							            $mysqli = new mysqli("puglies2.web.engr.illinois.edu", "puglies2_tbd4", "arcarctbd4", "puglies2_arc");
+							            if ($mysqli->connect_errno) {
+							                echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+							            }
+
+							            if (!($stmt = $mysqli->prepare("SELECT Purpose FROM PurposeSet"))) {
+							                echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+							            }
+
+							            if (!$stmt->execute()) {
+							                echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+							            }
+
+							            $stmt->bind_result($name);
+							            while ($stmt->fetch()) {
+							                echo '<option value="' . $name . '">' . $name . '</option>';
+							            }
+
+							            $stmt->close();
+							            $mysqli->close();
+							        ?>
 								</select>
 							</div>
 						<div class="formsubmit"><input type="submit" formaction="workout.php" value="Add Need"/></div>
