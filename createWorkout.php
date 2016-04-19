@@ -40,6 +40,33 @@ if (array_key_exists('purpose', $_POST)) {
             }
         }
     }
+    else {
+        $pickedBuilding = $possible[0][2];
+        $pickedFloor = $possible[0][3];
+
+        $picked = array();
+        //Try to find all on same floor
+        for ($i = 0; $i < count($possible); $i++) {
+            if ($possible[$i][2] == $pickedBuilding && $possible[$i][3] == $pickedFloor) {
+                $picked[] = $possible[$i];
+                if (count($picked) == 5) {
+                    break;
+                }
+            }
+            else {
+                $picked = array();
+                $pickedBuilding = $possible[$i][2];
+                $pickedFloor = $possible[$i][3];
+            }
+        }
+        shuffle($possible);
+        for ($i = 0; $i < 5; $i++) {
+            echo $possible[$i][1] . " in " . $possible[$i][2] . " on " . $possible[$i][3];
+            if ($i < count($possible) - 1) {
+                echo ", ";
+            }
+        }
+    }
 
     $stmt->close();
     $mysqli->close();
