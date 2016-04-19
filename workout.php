@@ -1,4 +1,19 @@
-<?php session_start(); ?>
+<?php session_start();
+	if (!array_key_exists('goals', $_SESSION)) {
+		$_SESSION['goals'] = array();
+	}
+	if (array_key_exists('delete', $_POST)) {
+		if($index = array_search($_POST['delete'], $_SESSION['goals'])) {
+			unset $_SESSION['goals'][$index];
+			$_SESSION['goals'] = array_values($_SESSION['goals']);
+		}
+	}
+	if (array_key_exists('add', $_POST)) {
+		if (!in_array($_POST['add'], $_SESSION['goals'])) {
+			$_SESSION['goals'][] = $_POST['add'];
+		}
+	}
+?>
 
 <html>
 	<head>
@@ -36,10 +51,13 @@
 					<div class="form">
 						<form method="post" action="createWorkout.php">
 							<div class="formlabel"><b>Current Needs/Goals</b></div>
-							<?php var_dump($_POST['delete']); var_dump($_POST);?>
 							<div class="forminput"><select id="needs" class="formText" name="delete" size="5">
-									<option value="Upper Body">Upper Body</option>
-									<option value="Cardio">Cardio</option>
+									<?php
+										for ($i = 0; $i , count($_SESSION['goals']); $i++) {
+											echo "<option value='" . $_SESSION['goals'][$i] . "'>" .
+												$_SESSION['goals'][$i] . "</option>";
+										}
+									?>
 								</select>
 							</div>
 							<div class="formsubmit"><input type="submit" formaction="workout.php" value="Delete Need"></div>
