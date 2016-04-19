@@ -12,7 +12,7 @@
         echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
 
-    $sql = "SELECT COUNT(netID) FROM Reservation WHERE netID=studentNetID;";
+    $sql = "SELECT COUNT(netID) FROM Reservation WHERE netID=" . $studentNetID . ";";
     $currentDate=date_create("2016-04-21");
 
     if ($mysqli->query($sql) < 3) {
