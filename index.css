@@ -79,6 +79,7 @@ ul {
 #content {
 	padding: 10px;
 	background-color: #FFEDC6;
+	border: 1px solid black;
 }
 
 li a:hover {
@@ -121,6 +122,22 @@ li a:hover {
 	padding-top: 2px;
 }
 
+.smallforminput{
+	display: block;
+	float: left;
+	width: 20%;
+	text-align: left;
+}
+
+.smallformlabel {
+	display: block;
+	float: left;
+	width: calc(30% - 10px);
+	text-align: right;
+	padding-right: 10px;
+	padding-top: 2px;
+}
+
 .forminput{
 	display: block;
 	float: left;
@@ -140,6 +157,42 @@ li a:hover {
 	margin-bottom: 12px;
 	float: left;
 	margin-right: 6px;
+}
+
+.forminput select {
+	display: block;
+	margin-bottom: 12px;
+	float: left;
+	margin-right: 6px;
+}
+
+.forminfo span{
+	display: block;
+	position: relative;
+	top: -12px;
+	margin-bottom: 0px;
+	float: left;
+	margin-right: 6px;
+	border: none;
+}
+
+.selected {
+    background-color: #0000A0;
+    color: #FFF;
+}
+
+.phpdata {
+	display: none;
+}
+
+table {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none;   /* Chrome/Safari/Opera */
+	-khtml-user-select: none;    /* Konqueror */
+	-moz-user-select: none;      /* Firefox */
+	-ms-user-select: none;       /* Internet Explorer/Edge */
+	user-select: none;  
+	cursor: default;
 }
 
 input[type="submit"] {
