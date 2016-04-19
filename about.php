@@ -19,7 +19,7 @@
 					<ul id="account">
 						<?php if (array_key_exists('netId', $_SESSION)): ?>
 							<li><a href="logout.php">Log Out</a></li>
-							<li>Logged in as <?php echo $_SESSION['username']; ?></li>
+							<li><a href="viewAccount.php"><?php echo $_SESSION['netId']; ?></a></li>
 						<?php else: ?>
 							<li><a href="signin.php">Log In</a></li>
 							<li><a href="signup.php">Join</a></li>
