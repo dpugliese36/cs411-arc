@@ -14,7 +14,7 @@
 
     $sql = "SELECT COUNT(netID) FROM Reservation WHERE netID=studentNetID;";
 
-    if ($stmt->query($sql) < 3) {
+    if ($mysqli->query($sql) < 3) {
 
         if (!($stmt = $mysqli->prepare("INSERT INTO Reservation(StartTime, EndTime, studentNetID, RoomID)"
                 . " VALUES (?, ?, ?, ?)"))) {
