@@ -53,10 +53,10 @@
 							<div class="formlabel"><b>Current Needs/Goals</b></div>
 							<div class="forminput"><select id="needs" class="formText" name="delete" size="5">
 									<?php
-										// for ($i = 0; $i , count($_SESSION['goals']); $i++) {
-										// 	echo "<option value='" . $_SESSION['goals'][$i] . "'>" .
-										// 		$_SESSION['goals'][$i] . "</option>";
-										// }
+										for ($i = 0; $i < count($_SESSION['goals']); $i++) {
+											echo "<option value='" . $_SESSION['goals'][$i] . "'>" .
+												$_SESSION['goals'][$i] . "</option>";
+										}
 									?>
 								</select>
 							</div>
