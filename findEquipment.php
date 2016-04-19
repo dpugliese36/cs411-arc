@@ -51,23 +51,24 @@ if (array_key_exists('equipment', $_POST)) {
         echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
     }
 
-    echo "<table><tr><th>ID #</th><th>Building</th><th>Floor</th><th>Purpose</th><tr>";
+    // echo "<table><tr><th>ID #</th><th>Building</th><th>Floor</th><th>Purpose</th><tr>";
 
     if (!$stmt->bind_result($id, $building, $floor, $purpose)) {
         echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
     }
     if ($stmt->fetch()) {
-        echo "<tr>";
+        // echo "<tr>";
 
-        echo "<td>" . $id . "</td><td>" . $building . "</td><td>" . $floor . "</td><td>" . $purpose . "</td>";
+        // echo "<td>" . $id . "</td><td>" . $building . "</td><td>" . $floor . "</td><td>" . $purpose . "</td>";
 
-        echo "</tr>";
+        // echo "</tr>";
+        echo $id;
     }
 
     $stmt->close();
     $mysqli->close();
 
-    echo "</table>";
+    // echo "</table>";
 
 }
 ?>
