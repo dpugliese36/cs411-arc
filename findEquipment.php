@@ -22,6 +22,9 @@ session_start();
             while ($stmt->fetch()) {
                 echo "<option>" . $name . "</option>";
             }
+
+            $stmt->close();
+            $mysqli->close();
         ?>
     </select>
     <input type="submit" name="Find"/>
@@ -59,6 +62,9 @@ if (array_key_exists('equipment', $_POST)) {
         // echo "</tr>";
         echo $id;
     }
+
+    $stmt->close();
+    $mysqli->close();
 
     echo "</table>";
 
