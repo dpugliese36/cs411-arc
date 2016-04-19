@@ -12,31 +12,32 @@
         echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
 
-    $sql = "SELECT COUNT(netID) FROM Reservation WHERE netID=studentNetID;";
+    $sql = "SELECT COUNT(netID) FROM Reservation WHERE netID='" . $studentNetID . "';";
     $currentDate=date_create("2016-04-21");
 
-    if ($mysqli->query($sql) < 3) {
+    if ($mysqli->query($sql)->fetch_row()[0] < 3) {
         echo "hello worlds \n";
-        $formDate = strtotime('d-m-Y',$startTime);
-        $date = date('d-m-Y', $formDate);
-        $diff = date_diff($date, $currentDate);
-        echo $diff->format("%R%a days");
+        // $formDate = strtotime('d-m-Y',$startTime);
+        // $date = date('d-m-Y', $formDate);
+        // $diff = date_diff($date, $currentDate);
+        // echo $diff->format("%R%a days");
+        var_dump($mysqli->query($sql)->fetch_row()[0]);
         if (!($stmt = $mysqli->prepare("INSERT INTO Reservation(StartTime, EndTime, netID, RoomID)"
                 . " VALUES (?, ?, ?, ?)"))) {
             echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+        }
+        if (!$stmt->bind_param("ssss", $startTime, $endTime, $studentNetID, $roomID)) {
+        echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+        }
+
+        if (!$stmt->execute()) {
+            echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+        }
+        else {
+            echo "Reservation made successfully!";
         }
     } else {
     echo "Sorry, too many reservations.";
     }
 
-    if (!$stmt->bind_param("ssss", $startTime, $endTime, $studentNetID, $roomID)) {
-        echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
-    }
-
-    if (!$stmt->execute()) {
-        echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
-    }
-    else {
-        echo "Reservation made successfully!";
-    }
 ?>
