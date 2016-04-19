@@ -36,6 +36,7 @@
 					<div class="form">
 						<form method="post" action="createWorkout.php">
 							<div class="formlabel"><b>Current Needs/Goals</b></div>
+							<?php echo $_POST['delete']; ?>
 							<div class="forminput"><select id="needs" class="formText" name="delete" multiple>
 									<option value="Upper Body">Upper Body</option>
 									<option value="Cardio">Cardio</option>
