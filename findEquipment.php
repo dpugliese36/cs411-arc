@@ -31,7 +31,7 @@ session_start();
 </form>
 
 <?php
-if (array_key_exists('equipment', $_POST)) {
+if (array_key_exists('equipment', $_POST) || true) {
     $equipmentType = "Treadmill";//$_POST['equipment'];
 
     $mysqli = new mysqli("puglies2.web.engr.illinois.edu", "puglies2_tbd4", "arcarctbd4", "puglies2_arc");
