@@ -26,18 +26,18 @@
                 . " VALUES (?, ?, ?, ?)"))) {
             echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
         }
+        if (!$stmt->bind_param("ssss", $startTime, $endTime, $studentNetID, $roomID)) {
+        echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+        }
+
+        if (!$stmt->execute()) {
+            echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+        }
+        else {
+            echo "Reservation made successfully!";
+        }
     } else {
     echo "Sorry, too many reservations.";
     }
 
-    if (!$stmt->bind_param("ssss", $startTime, $endTime, $studentNetID, $roomID)) {
-        echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
-    }
-
-    if (!$stmt->execute()) {
-        echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
-    }
-    else {
-        echo "Reservation made successfully!";
-    }
 ?>
