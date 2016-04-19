@@ -13,7 +13,7 @@
 					<ul id="navigation">
 						<li><a href="index.php">Home</a></li>
 						<li><a href="about.php">About</a></li>
-						<li><a href="index.php">Activities</a></li>
+						<li><a href="activities.php">Activities</a></li>
 						<li><a href="reserve.php">Reservations</a></li>
 					</ul>
 					<ul id="account">
