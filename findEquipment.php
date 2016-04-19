@@ -31,7 +31,7 @@ session_start();
 </form>
 
 <?php
-if (array_key_exists('equipment', $_POST) || true) {
+if (array_key_exists('equipment', $_POST)) {
     $equipmentType = "Treadmill";//$_POST['equipment'];
 
     $mysqli = new mysqli("puglies2.web.engr.illinois.edu", "puglies2_tbd4", "arcarctbd4", "puglies2_arc");
@@ -53,14 +53,15 @@ if (array_key_exists('equipment', $_POST) || true) {
 
     echo "<table><tr><th>ID #</th><th>Building</th><th>Floor</th><th>Purpose</th><tr>";
 
-    $stmt->bind_result($id, $building, $floor, $purpose);
+    if (!$stmt->bind_result($id, $building, $floor, $purpose)) {
+        echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+    }
     while ($stmt->fetch()) {
-        // echo "<tr>";
+        echo "<tr>";
 
-        // echo "<td>" . $id . "</td><td>" . $building . "</td><td>" . $floor . "</td><td>" . $purpose . "</td>";
+        echo "<td>" . $id . "</td><td>" . $building . "</td><td>" . $floor . "</td><td>" . $purpose . "</td>";
 
-        // echo "</tr>";
-        echo $id;
+        echo "</tr>";
     }
 
     $stmt->close();
