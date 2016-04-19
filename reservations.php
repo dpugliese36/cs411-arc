@@ -21,7 +21,7 @@
             echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
         }
     } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Sorry, too many reservations.";
     }
 
     if (!$stmt->bind_param("ssss", $startTime, $endTime, $studentNetID, $roomID)) {
