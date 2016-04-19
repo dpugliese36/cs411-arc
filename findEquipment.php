@@ -36,7 +36,7 @@ if (array_key_exists('equipment', $_POST)) {
         echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
 
-    if (!($stmt = $mysqli->prepare("SELECT * FROM Location INNER JOIN Function ON Location.EquipName = Function.EquipName WHERE EquipName = ?"))) {
+    if (!($stmt = $mysqli->prepare("SELECT * FROM Location INNER JOIN Function ON Location.EquipName = Function.EquipName WHERE Location.EquipName = ?"))) {
         echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
     }
 
