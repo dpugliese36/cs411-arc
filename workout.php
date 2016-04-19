@@ -34,7 +34,7 @@
 				<div id="pagetitle">Generate Workout</div>
 				<div id="content">
 					<div class="form">
-						<form method="post">
+						<form method="post" action="createWorkout.php">
 							<div class="formlabel"><b>Current Needs/Goals</b></div>
 							<div class="forminput"><table id="needs" class="formText">
 								<tr>
@@ -45,7 +45,7 @@
 								</tr>
 								</table>
 							</div>
-							<div class="formsubmit"><input type="submit" formaction="index.php" value="Delete Need"></div>
+							<div class="formsubmit"><input type="submit" formaction="workout.php" value="Delete Need"></div>
 							<div class="formlabel"><b>Add Need/Goal</b></div>
 							<div class="forminput"><select class="formText" name="">
 								<option value="upperbody">Upper Body</option>
@@ -67,7 +67,7 @@
 								<option value="core">Core</option>
 								</select>
 							</div>
-						<div class="formsubmit"><input type="submit" value="Add Need"/></div>
+						<div class="formsubmit"><input type="submit" formaction="workout.php" value="Add Need"/></div>
 						<div class="formsubmit"><input type="submit" value="Generate Workout"/></div>
 						</form>
 					</div>
