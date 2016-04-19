@@ -5,26 +5,26 @@ session_start();
 <form action="findEquipment.php" method="post">
     <select name="equipment">
         <?php
-            $mysqli = new mysqli("puglies2.web.engr.illinois.edu", "puglies2_tbd4", "arcarctbd4", "puglies2_arc");
-            if ($mysqli->connect_errno) {
-                echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
-            }
+            // $mysqli = new mysqli("puglies2.web.engr.illinois.edu", "puglies2_tbd4", "arcarctbd4", "puglies2_arc");
+            // if ($mysqli->connect_errno) {
+            //     echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+            // }
 
-            if (!($stmt = $mysqli->prepare("SELECT EquipName FROM Equipment"))) {
-                echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
-            }
+            // if (!($stmt = $mysqli->prepare("SELECT EquipName FROM Equipment"))) {
+            //     echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+            // }
 
-            if (!$stmt->execute()) {
-                echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
-            }
+            // if (!$stmt->execute()) {
+            //     echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+            // }
 
-            $stmt->bind_result($name);
-            while ($stmt->fetch()) {
-                echo "<option>" . $name . "</option>";
-            }
+            // $stmt->bind_result($name);
+            // while ($stmt->fetch()) {
+            //     echo "<option>" . $name . "</option>";
+            // }
 
-            $stmt->close();
-            $mysqli->close();
+            // $stmt->close();
+            // $mysqli->close();
         ?>
     </select>
     <input type="submit" name="Find"/>
@@ -32,7 +32,7 @@ session_start();
 
 <?php
 if (array_key_exists('equipment', $_POST)) {
-    $equipmentType = $_POST['equipment'];
+    $equipmentType = "Treadmill";//$_POST['equipment'];
 
     $mysqli = new mysqli("puglies2.web.engr.illinois.edu", "puglies2_tbd4", "arcarctbd4", "puglies2_arc");
     if ($mysqli->connect_errno) {
