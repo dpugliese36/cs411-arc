@@ -21,7 +21,7 @@
         // $date = date('d-m-Y', $formDate);
         // $diff = date_diff($date, $currentDate);
         // echo $diff->format("%R%a days");
-        echo $mysqli->query($sql)
+        echo $mysqli->query($sql);
         if (!($stmt = $mysqli->prepare("INSERT INTO Reservation(StartTime, EndTime, netID, RoomID)"
                 . " VALUES (?, ?, ?, ?)"))) {
             echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
