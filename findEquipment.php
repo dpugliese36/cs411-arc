@@ -20,7 +20,7 @@ session_start();
 
             $stmt->bind_result($name);
             while ($stmt->fetch()) {
-                echo "<option>" . $name . "</option";
+                echo "<option>" . $name . "</option>";
             }
         ?>
     </select>
