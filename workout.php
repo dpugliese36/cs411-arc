@@ -4,7 +4,7 @@
 	}
 	if (array_key_exists('delete', $_POST)) {
 		if($index = array_search($_POST['delete'], $_SESSION['goals'])) {
-			unset $_SESSION['goals'][$index];
+			unset($_SESSION['goals'][$index]);
 			$_SESSION['goals'] = array_values($_SESSION['goals']);
 		}
 	}
