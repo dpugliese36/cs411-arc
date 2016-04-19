@@ -47,7 +47,7 @@
 							</div>
 							<div class="formsubmit"><input type="submit" formaction="workout.php" value="Delete Need"></div>
 							<div class="formlabel"><b>Add Need/Goal</b></div>
-							<div class="forminput"><select class="formText" name="">
+							<div class="forminput"><select class="formText" name="add">
 								<option value="upperbody">Upper Body</option>
 								<option value="lowerbody">Lower Body</option>
 								<option value="cardio">Cardio</option>
