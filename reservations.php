@@ -16,7 +16,7 @@
     $currentDate=date_create("2016-04-21");
 
     if ($mysqli->query($sql) < 3) {
-        echo "hello worlds \n";
+        echo "hello world \n";
         $formDate = strtotime('d-m-Y',$startTime);
         $date = date('d-m-Y', $formDate);
         $diff = date_diff($date, $currentDate);

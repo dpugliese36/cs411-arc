@@ -13,13 +13,13 @@
                     <ul id="navigation">
                         <li><a href="index.php">Home</a></li>
                         <li><a href="about.php">About</a></li>
-                        <li><a href="index.php">Activities</a></li>
+                        <li><a href="activities.php">Activities</a></li>
                         <li><a href="reserve.php">Reservations</a></li>
                     </ul>
                     <ul id="account">
                         <?php if (array_key_exists('netId', $_SESSION)): ?>
                             <li><a href="logout.php">Log Out</a></li>
-                            <li>Logged in as <?php echo $_SESSION['netId']; ?></li>
+                            <li><a href="viewAccount.php"><?php echo $_SESSION['netId']; ?></a></li>
                         <?php else: ?>
                             <li><a href="signin.php">Log In</a></li>
                             <li><a href="signup.php">Join</a></li>
@@ -28,33 +28,34 @@
                 </div>
             </div>
             <div id="body">
-            <div id="pagetitle">Make ARC Account</div>
+            <div id="pagetitle">Make ARC Account<br/>You will recieve an email to confirm your account</div>
                 <div id="content">
+					<div class="form">
                     <form action="createAccount.php" method="post">
-                        <input class="smallText" type="text" name="netId" placeholder="netID"><br>
-                        <input class="smallText" type="password" name="password" placeholder="Password"><br>
-                        <input class="smallText" type="password" name="confirmpassword" placeholder="Confirm Password"><br>
-                        <input class="smallText" type="text" name="first_name" placeholder="First Name"><br>
-                        <input class="smallText" type="text" name="last_name" placeholder="Last Name"><br>
-                        <input class="smallText" type="date" name="bday" placeholder="Birthday (YYYY-MM-DD)"><br>
-                        <input class="smallText" type="text" name="sex" placeholder="sex"><br>
-                        <div class="smallText"><input name="height" placeholder="height">
-                        <select name="htunit">
+                        <div class="formlabel"><b>netID</b></div><div class="forminput"><input class="formText" type="text" name="netId" placeholder="netID"></div>
+                        <div class="formlabel"><b>Password</b></div><div class="forminput"><input class="formText" type="password" name="password" placeholder="Password"></div>
+                        <div class="formlabel"><b>Confirm Password</b></div><div class="forminput"><input class="formText" type="password" name="confirmpassword" placeholder="Confirm Password"></div>
+                        <div class="formlabel"><b>First Name</b></div><div class="forminput"><input class="formText" type="text" name="first_name" placeholder="First Name"></div>
+                        <div class="formlabel"><b>Last Name</b></div><div class="forminput"><input class="formText" type="text" name="last_name" placeholder="Last Name"></div>
+                        <div class="formlabel"><b>Birthday</b></div><div class="forminput"><input class="formText" type="date" name="bday" placeholder="Birthday (YYYY-MM-DD)"></div>
+                        <div class="formlabel"><b>Sex</b></div><div class="forminput"><input class="formText" type="text" name="sex" placeholder="sex"></div>
+                        <div class="formlabel"><b>Height</b></div><div class="forminput"><input class="formText" name="height" placeholder="height">
+						<select class="formText" name="htunit">
                             <option value="cm">cm</option>
                             <option value="inches">inches</option>
                         </select>
-                        </div>
-                        <br>
-                        <div class="smallText"><input name="weight" placeholder="weight">
-                        <select name="wtunit">
+						</div>
+                        <div class="formlabel"><b>Weight</b></div><div class="forminput"><input class="formText" name="weight" placeholder="weight">
+                        <select class="formText" name="wtunit">
                             <option value="kg">kg</option>
                             <option value="lbs">lbs</option>
                             <option value="stone">stone</option>
-                        </select>
-                        </div>
-                        <br><br>
-                        <input type="submit">
+                        </select></div>
+						<div class="formsubmit">
+							<input type="submit">
+						</div>
                     </form>
+					</div>
                 </div>
             </div>
         </div>
