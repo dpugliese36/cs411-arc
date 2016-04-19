@@ -12,9 +12,16 @@
         echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
 
-    if (!($stmt = $mysqli->prepare("INSERT INTO Reservation(StartTime, EndTime, NetID, RoomID)"
-            . " VALUES (?, ?, ?, ?)"))) {
-        echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+    $sql = "SELECT COUNT(netID) FROM Reservation WHERE netID=netID;";
+
+    if ($conn->query($sql) < 3) {
+
+        if (!($stmt = $mysqli->prepare("INSERT INTO Reservation(StartTime, EndTime, NetID, RoomID)"
+                . " VALUES (?, ?, ?, ?)"))) {
+            echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+        }
+    } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
     if (!$stmt->bind_param("ssss", $startTime, $endTime, $netID, $roomID)) {
