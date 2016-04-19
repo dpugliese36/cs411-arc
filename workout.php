@@ -45,7 +45,7 @@
 								</tr>
 								</table>
 							</div>
-							<div class="formsubmit"><input type="submit" value="Delete Need"></div>
+							<div class="formsubmit"><input type="submit" formaction="index.php" value="Delete Need"></div>
 							<div class="formlabel"><b>Add Need/Goal</b></div>
 							<div class="forminput"><select class="formText" name="">
 								<option value="upperbody">Upper Body</option>
