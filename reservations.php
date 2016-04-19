@@ -15,13 +15,13 @@
     $sql = "SELECT COUNT(netID) FROM Reservation WHERE netID='" . $studentNetID . "';";
     $currentDate=date_create("2016-04-21");
 
-    if ($mysqli->query($sql) < 3 || true) {
+    if ($mysqli->query($sql)->fetch_row[0] < 3 || true) {
         echo "hello worlds \n";
         // $formDate = strtotime('d-m-Y',$startTime);
         // $date = date('d-m-Y', $formDate);
         // $diff = date_diff($date, $currentDate);
         // echo $diff->format("%R%a days");
-        var_dump($mysqli->query($sql));
+        var_dump($mysqli->query($sql)->fetch_row[0]);
         if (!($stmt = $mysqli->prepare("INSERT INTO Reservation(StartTime, EndTime, netID, RoomID)"
                 . " VALUES (?, ?, ?, ?)"))) {
             echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
