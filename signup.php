@@ -13,7 +13,7 @@
                     <ul id="navigation">
                         <li><a href="index.php">Home</a></li>
                         <li><a href="about.php">About</a></li>
-                        <li><a href="index.php">Activities</a></li>
+                        <li><a href="activities.php">Activities</a></li>
                         <li><a href="reserve.php">Reservations</a></li>
                     </ul>
                     <ul id="account">
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div id="body">
-            <div id="pagetitle">Make ARC Account</div>
+            <div id="pagetitle">Make ARC Account<br/>You will recieve an email to confirm your account</div>
                 <div id="content">
 					<div class="form">
                     <form action="createAccount.php" method="post">
