@@ -12,16 +12,16 @@
         echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
 
-    $sql = "SELECT COUNT(netID) FROM Reservation WHERE netID=" . $studentNetID . ";";
+    $sql = "SELECT COUNT(netID) FROM Reservation WHERE netID='" . $studentNetID . "';";
     $currentDate=date_create("2016-04-21");
 
-    if ($mysqli->query($sql) < 3) {
+    if ($mysqli->query($sql) < 3 || true) {
         echo "hello worlds \n";
         // $formDate = strtotime('d-m-Y',$startTime);
         // $date = date('d-m-Y', $formDate);
         // $diff = date_diff($date, $currentDate);
         // echo $diff->format("%R%a days");
-        echo $mysqli->query($sql);
+        var_dump($mysqli->query($sql));
         if (!($stmt = $mysqli->prepare("INSERT INTO Reservation(StartTime, EndTime, netID, RoomID)"
                 . " VALUES (?, ?, ?, ?)"))) {
             echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
