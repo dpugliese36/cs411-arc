@@ -65,6 +65,8 @@ if (array_key_exists('equipment', $_POST)) {
         echo $id;
     }
 
+    echo "Done";
+
     $stmt->close();
     $mysqli->close();
 
