@@ -24,6 +24,7 @@ session_start();
             }
         ?>
     </select>
+    <input type="submit" name="Find"/>
 </form>
 
 <?php
