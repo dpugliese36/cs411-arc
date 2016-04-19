@@ -56,7 +56,7 @@ if (array_key_exists('equipment', $_POST)) {
     if (!$stmt->bind_result($id, $building, $floor, $purpose)) {
         echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
     }
-    while ($stmt->fetch()) {
+    if ($stmt->fetch()) {
         echo "<tr>";
 
         echo "<td>" . $id . "</td><td>" . $building . "</td><td>" . $floor . "</td><td>" . $purpose . "</td>";
