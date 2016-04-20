@@ -176,6 +176,34 @@ li a:hover {
 	border: none;
 }
 
+.labelerror {
+	display: none;
+	float: left;
+	width: calc(35% - 10px);
+	text-align: right;
+	padding-right: 10px;
+	padding-top: 2px;
+}
+
+.formerror span{
+	display: none;
+	position: relative;
+	top: -12px;
+	margin-bottom: 0px;
+	float: left;
+	margin-right: 6px;
+	border: none;
+}
+
+.formerror {
+	position: relative;
+	top: -12px;
+	color: red;
+	font-style: italic;
+	border: none;
+	pointer-events: none;
+}
+
 .selected {
     background-color: #0000A0;
     color: #FFF;
