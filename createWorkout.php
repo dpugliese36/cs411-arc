@@ -43,6 +43,7 @@ if (array_key_exists('goals', $_SESSION)) {
         }
     }
     else {
+        echo "Use ";
         $pickedBuilding = $possible[0][2];
         $pickedFloor = $possible[0][3];
 
@@ -87,6 +88,14 @@ if (array_key_exists('goals', $_SESSION)) {
                     }
                 }
             }
+        }
+        else {
+            for ($i = 0; $i < 5; $i++) {
+                    echo $picked[$i][1] . " in " . $picked[$i][2] . " on " . $picked[$i][3];
+                    if ($i < count($picked) - 1) {
+                        echo ", ";
+                    }
+                }
         }
     }
 
