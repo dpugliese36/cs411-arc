@@ -3,6 +3,11 @@ session_start();
 
 if (array_key_exists('goals', $_SESSION)) {
     $goals = $_SESSION['goals'];
+
+    for ($i = 0; $i < count($goals); $i++) {
+        $goals[$i] = "'" . $goals[$i] . "'";
+    }
+
     $clause = implode(',', $goals);
 
     $mysqli = new mysqli("puglies2.web.engr.illinois.edu", "puglies2_tbd4", "arcarctbd4", "puglies2_arc");
