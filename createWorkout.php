@@ -34,9 +34,9 @@ if (array_key_exists('goals', $_SESSION)) {
     }
 
     if (count($possible) <= 5) {
-        echo "Use ";
+        echo "Use <table>";
         for ($i = 0; $i < count($possible); $i++) {
-            echo $possible[$i][1] . " in " . $possible[$i][2] . " on " . $possible[$i][3];
+            echo "<tr><td>" . $possible[$i][1] . " in " . $possible[$i][2] . " on " . $possible[$i][3] . "</td></tr>";
             if ($i < count($possible) - 1) {
                 echo ", ";
             }
@@ -82,8 +82,17 @@ if (array_key_exists('goals', $_SESSION)) {
             if (count($picked) < 5) {
                 shuffle($possible);
                 for ($i = 0; $i < 5; $i++) {
-                    echo $possible[$i][1] . " in " . $possible[$i][2] . " on " . $possible[$i][3];
+                    echo "<tr><td>" . $possible[$i][1] . " in " . $possible[$i][2] . " on " . $possible[$i][3] . "</td></tr>";
                     if ($i < count($possible) - 1) {
+                        echo ", ";
+                    }
+                }
+            }
+            else {
+                for ($i = 0; $i < 5; $i++) {
+                    shuffle($picked);
+                    echo "<tr><td>" . $picked[$i][1] . " in " . $picked[$i][2] . " on " . $picked[$i][3] . "</td></tr>";
+                    if ($i < count($picked) - 1) {
                         echo ", ";
                     }
                 }
@@ -91,12 +100,12 @@ if (array_key_exists('goals', $_SESSION)) {
         }
         else {
             for ($i = 0; $i < 5; $i++) {
-                    shuffle($picked);
-                    echo $picked[$i][1] . " in " . $picked[$i][2] . " on " . $picked[$i][3];
-                    if ($i < count($picked) - 1) {
-                        echo ", ";
-                    }
+                shuffle($picked);
+                echo "<tr><td>" . $picked[$i][1] . " in " . $picked[$i][2] . " on " . $picked[$i][3] . "</td></tr>";
+                if ($i < count($picked) - 1) {
+                    echo ", ";
                 }
+            }
         }
     }
 
