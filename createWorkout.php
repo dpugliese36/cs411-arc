@@ -1,6 +1,41 @@
 <?php
 session_start();
+?>
 
+<html>
+    <head>
+        <script type="text/javascript" src="viewaccount.js"></script>
+        <link rel="stylesheet" href="index.css"></style>
+        <title>ARC Recreation Coordinator</title>
+    </head>
+    <body>
+        <div id="main">
+            <div class="phpdata" name="selectedNeed" id="selectedNeed"></div>
+            <div id="top">
+                <img id="headerimage" src="Header.png"><img>
+                <img src="Logo.png"></img>
+                <div id="header">
+                    <ul id="navigation">
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="findEquipment.php">Equipment</a></li>
+                        <li><a href="workout.php">Workout</a></li>
+                        <li><a href="reserve.php">Reservations</a></li>
+                    </ul>
+                    <ul id="account">
+                        <?php if (array_key_exists('netId', $_SESSION)): ?>
+                            <li><a href="logout.php">Log Out</a></li>
+                            <li><a href="viewAccount.php"><?php echo $_SESSION['netId']; ?></a></li>
+                        <?php else: ?>
+                            <li><a href="signin.php">Log In</a></li>
+                            <li><a href="signup.php">Join</a></li>
+                        <?php endif; ?>
+                    </ul>
+                </div>
+            </div>
+            <div id="body">
+                <div id="pagetitle">Your Workout</div>
+                <div id="content">
+<?php
 if (array_key_exists('goals', $_SESSION)) {
     $goals = $_SESSION['goals'];
 
@@ -105,3 +140,9 @@ if (array_key_exists('goals', $_SESSION)) {
     $mysqli->close();
 }
 ?>
+                </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

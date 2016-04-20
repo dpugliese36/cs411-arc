@@ -17,9 +17,9 @@ session_start();
 				<div id="header">
 					<ul id="navigation">
 						<li><a href="index.php">Home</a></li>
-						<li><a href="about.php">About</a></li>
-						<li><a href="index.php">Activities</a></li>
-						<li><a href="reserve.php">Reservations</a></li>
+                        <li><a href="findEquipment.php">Equipment</a></li>
+                        <li><a href="workout.php">Workout</a></li>
+                        <li><a href="reserve.php">Reservations</a></li>
 					</ul>
 					<ul id="account">
 						<?php if (array_key_exists('netId', $_SESSION)): ?>
