@@ -15,7 +15,7 @@ if (array_key_exists('goals', $_SESSION)) {
         echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
     }
 
-    call_user_func_array(($stmt, 'bind_param'), array_merge(array($param_str), $goals));
+    call_user_func_array(array($stmt, 'bind_param'), array_merge(array($param_str), $goals));
 
     if (!$stmt->execute()) {
         echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
