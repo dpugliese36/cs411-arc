@@ -7,6 +7,8 @@ var day;
 var hour;
 var minute;
 var duration;
+var endhour;
+var endminute;
 function isInteger(numstr) {
 	var n = ~~Number(numstr);
 	return ~~Number(numstr) == Number(numstr) && n >= 0;
@@ -80,17 +82,26 @@ function isValidTime(timeString){
 	return true;
 }
 function isValidDuration(durationString){
-	if(!isInteger(durationString)){
-		durationErrorMessage = "Invalid duration.";
+	var parts = durationString.split(":");
+	if(parts.length != 2){
+		timeErrorMessage = "Please write time in HH:MM format.";
 		return false;
 	}
-	duration = parseInt(durationString);
-	if(duration < 30) {
-		durationErrorMessage = "Duration cannot be less than 30 minutes";
+	endhour = parts[0];
+	endminute = parts[1];
+	if(endhour.length != 2 || endminute.length != 2){
+		timeErrorMessage = "Please write time in HH:MM format.";
 		return false;
 	}
-	if(duration > 240){
-		durationErrorMessage = "Duration cannot be longer than 4 hours.";
+	if(!(isInteger(endhour) && isInteger(endminute))){
+		timeErrorMessage = "Invalid time.";
+		return false;
+	}
+	endhour = parseInt(endhour);
+	endminute = parseInt(endminute);
+	
+	if(!(endhour >= 0 && endhour < 24 && endminute >= 0 && endminute < 60)){
+		timeErrorMessage = "Invalid time.";
 		return false;
 	}
 	return true;
@@ -126,6 +137,33 @@ function verify() {
 	} else {
 		document.getElementById("durationl").style.display = "none";
 		document.getElementById("duratione").style.display = "none";
+	}
+	
+	if(timevalid && durationvalid){
+		var hours = endhour - hour;
+		var minutes = endminute - minute;
+		var duration = 60*hours + minutes;
+		if(endhour < hour){
+			document.getElementById("durationl").style.display = "block";
+			document.getElementById("duratione").style.display = "block";
+			document.getElementById("duratione").innerHTML = "End time cannot be earlier than start.";
+			durationvalid = false;
+		} else if(endhour == hour && endminute < minute){
+			document.getElementById("durationl").style.display = "block";
+			document.getElementById("duratione").style.display = "block";
+			document.getElementById("duratione").innerHTML = "End time cannot be earlier than start.";
+			durationvalid = false;
+		} else if(duration < 30){
+			document.getElementById("durationl").style.display = "block";
+			document.getElementById("duratione").style.display = "block";
+			document.getElementById("duratione").innerHTML = "Duration must be at least 30 minutes.";
+			durationvalid = false;
+		} else if(duration > 240){
+			document.getElementById("durationl").style.display = "block";
+			document.getElementById("duratione").style.display = "block";
+			document.getElementById("duratione").innerHTML = "Duration cannot be longer than 4 hours.";
+			durationvalid = false;
+		}
 	}
 
 	return datevalid && timevalid && durationvalid;
