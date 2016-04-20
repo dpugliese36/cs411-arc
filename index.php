@@ -32,9 +32,8 @@
 			<div id="content">
 				<b>Welcome to the ARC Recreation Coordinator, or ARC for short.</b><br>
 				
-				Enjoy the finest of placeholder text:<br><br>
-				
-				Today's weather will be a high of 66 degrees Fahrenheit and a low of 52. Cloudy. 35% chance of rain. Winds NNE 20 MPH. Tomorrow's forecast will be 35 degrees Fahrenheit and a low of 23. Snow. Winds ENE 25 MPH.
+				ARC, not to be confused with the ARC (Activities and Recreation Center), stands for ARC Recreation Coordinator. It is a web-based service where students, RSOs and faculty can reserve rooms, plan workouts and learn about the facilities of the recreation centers of UIUC, CRCE and ARC.<br><br>
+				ARC was created by Douglas Zhu, Matthew Yang, Daniel Pugliese and Chufeng Yuan.
 			</div>
 			</div>
 		</div>
