@@ -15,7 +15,7 @@
     $sql = "SELECT COUNT(netID) FROM Reservation WHERE netID='" . $studentNetID . "';";
     $currentDate=date_create("2016-04-21");
 
-    if ($mysqli->query($sql)->fetch_row()[0] < 3) {
+    if ($mysqli->query($sql)->fetch_row()[0] < 3 || true) {
         echo "hello worlds \n";
         // $formDate = strtotime('d-m-Y',$startTime);
         // $date = date('d-m-Y', $formDate);
