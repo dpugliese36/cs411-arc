@@ -2,6 +2,9 @@
     session_start();
 	$startTime = $_POST['startTime'];
     $endTime = $_POST['endTime'];
+    $date = $_POST['date'];
+    $startDate = $date . " " . $startTime . ":00";
+    $endDate = $date . " " . $endTime . ":00";
     #$reservationNumber = $_POST['reservationNumber'];
     $studentNetID = $_SESSION["netId"];
     $roomID = $_POST["roomID"];
@@ -13,7 +16,8 @@
     }
 
     $sql = "SELECT COUNT(netID) FROM Reservation WHERE netID='" . $studentNetID . "';";
-    $sql_time_check = "SELECT StartTime, EndTime, RoomID FROM Reservation WHERE(('" . $startTime . "' BETWEEN StartTime AND EndTime) OR ('" . $endTime . "' BETWEEN StartTime AND EndTime)) AND (RoomID ='" . $roomID . "');";
+    $sql_time_check = "SELECT StartTime, EndTime, RoomID FROM Reservation WHERE(('" . $startDate . "' BETWEEN StartTime AND EndTime) OR ('" . $endDate . "' BETWEEN StartTime AND EndTime)) AND (RoomID ='" . $roomID . "');";
+    echo $sql_time_check;
     $currentDate=date_create("2016-04-21");
 
     $reservations = $mysqli->query($sql_time_check)->fetch_row();
