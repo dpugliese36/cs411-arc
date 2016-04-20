@@ -4,6 +4,7 @@ session_start();
 if (array_key_exists('goals', $_SESSION)) {
     $goals = $_SESSION['goals'];
     $clause = implode(',', array_fill(0, count($goals), '?'));
+    $param_str = implode('', array_fill(0, count($goals), 's'));
 
     $mysqli = new mysqli("puglies2.web.engr.illinois.edu", "puglies2_tbd4", "arcarctbd4", "puglies2_arc");
     if ($mysqli->connect_errno) {
@@ -14,7 +15,7 @@ if (array_key_exists('goals', $_SESSION)) {
         echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
     }
 
-    call_user_func_array(array($stmt, 'bind_param'), $goals);
+    call_user_func_array(($stmt, 'bind_param'), array_merge(array($param_str), $goals));
 
     if (!$stmt->execute()) {
         echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
