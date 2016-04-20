@@ -24,7 +24,7 @@
         // echo $diff->format("%R%a days");
         //var_dump($mysqli->query($sql)->fetch_row()[0]);
         echo "yes";
-        var_dump($mysqli->query($sql_time_check)->fetch_row());
+        var_dump($mysqli->query($sql_time_check)->fetch_row()[0]);
         echo "yes";
         if (!($stmt = $mysqli->prepare("INSERT INTO Reservation(StartTime, EndTime, netID, RoomID)"
                 . " VALUES (?, ?, ?, ?)"))) {
