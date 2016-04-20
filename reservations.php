@@ -16,7 +16,7 @@
     $sql_time_check = "SELECT StartTime, EndTime, RoomID FROM Reservation WHERE(('" . $startTime . "' BETWEEN StartTime AND EndTime) OR ('" . $endTime . "' BETWEEN StartTime AND EndTime)) AND (RoomID ='" . $roomID . "');";
     $currentDate=date_create("2016-04-21");
 
-    $reservations = $mysqli->query($sql_time_check)->fetch_row()[0];
+    $reservations = $mysqli->query($sql_time_check)->fetch_row();
 
     if ($mysqli->query($sql)->fetch_row()[0] < 30 && $reservations == NULL) {
         echo "hello worlds \n";
