@@ -48,7 +48,7 @@
 			<div id="body">
 				<div id="pagetitle">Generate Workout</div>
 				<div id="content">
-					<div class="form">
+					<div class="form" action="createWorkout.php" action="post">
 						<form method="post" action="createWorkout.php">
 							<div class="formlabel"><b>Current Needs/Goals</b></div>
 							<div class="forminput"><select id="needs" class="formText" name="delete" size="5">

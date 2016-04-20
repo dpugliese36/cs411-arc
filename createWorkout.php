@@ -1,15 +1,23 @@
 <?php
 session_start();
 
-if (array_key_exists('purpose', $_POST)) {
-    $purpose = $_POST['purpose'];
+if (array_key_exists('goals', $_SESSION)) {
+    $goals = $_SESSION['goals'];
+    $purpose = "(";
+    for ($i = 0; $i < count($_SESSION['goals']); $i++) {
+        $purpose = $purpose . $_SESSION['goals'][$i];
+        if ($i < count($_SESSION['goals']) - 1) {
+            $purpose = $purpose . ",";
+        }
+    }
+    $purpose = $purpose . ")";
 
     $mysqli = new mysqli("puglies2.web.engr.illinois.edu", "puglies2_tbd4", "arcarctbd4", "puglies2_arc");
     if ($mysqli->connect_errno) {
         echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
 
-    if (!($stmt = $mysqli->prepare("SELECT EquipId, EquipName, Building, Floor FROM Location INNER JOIN Function ON Location.EquipName = Function.EquipName WHERE Function.Purpose = ? ORDER BY Building, Floor"))) {
+    if (!($stmt = $mysqli->prepare("SELECT EquipId, EquipName, Building, Floor FROM Location INNER JOIN Function ON Location.EquipName = Function.EquipName WHERE Function.Purpose IN ? ORDER BY Building, Floor"))) {
         echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
     }
 
