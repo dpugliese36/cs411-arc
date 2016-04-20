@@ -91,6 +91,7 @@ if (array_key_exists('goals', $_SESSION)) {
         }
         else {
             for ($i = 0; $i < 5; $i++) {
+                    shuffle($picked);
                     echo $picked[$i][1] . " in " . $picked[$i][2] . " on " . $picked[$i][3];
                     if ($i < count($picked) - 1) {
                         echo ", ";
