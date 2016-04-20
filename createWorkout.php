@@ -35,31 +35,23 @@ session_start();
 			<div id="body">
 				<div id="pagetitle">Your Workout</div>
 				<div id="content">
-					<?php
-session_start();
-
+<?php
 if (array_key_exists('goals', $_SESSION)) {
     $goals = $_SESSION['goals'];
-    $purpose = "(";
-    for ($i = 0; $i < count($_SESSION['goals']); $i++) {
-        $purpose = $purpose . $_SESSION['goals'][$i];
-        if ($i < count($_SESSION['goals']) - 1) {
-            $purpose = $purpose . ",";
-        }
+
+    for ($i = 0; $i < count($goals); $i++) {
+        $goals[$i] = "'" . $goals[$i] . "'";
     }
-    $purpose = $purpose . ")";
+
+    $clause = implode(',', $goals);
 
     $mysqli = new mysqli("puglies2.web.engr.illinois.edu", "puglies2_tbd4", "arcarctbd4", "puglies2_arc");
     if ($mysqli->connect_errno) {
         echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
 
-    if (!($stmt = $mysqli->prepare("SELECT EquipId, EquipName, Building, Floor FROM Location INNER JOIN Function ON Location.EquipName = Function.EquipName WHERE Function.Purpose IN ? ORDER BY Building, Floor"))) {
+    if (!($stmt = $mysqli->prepare("SELECT EquipId, EquipName, Building, Floor FROM Location INNER JOIN Function ON Location.EquipName = Function.EquipName WHERE Function.Purpose IN " . $clause ." ORDER BY Building, Floor"))) {
         echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
-    }
-
-    if (!$stmt->bind_param("s", $purpose)) {
-        echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
     }
 
     if (!$stmt->execute()) {
