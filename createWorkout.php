@@ -1,22 +1,65 @@
 <?php
 session_start();
+?>
+
+<html>
+	<head>
+		<script type="text/javascript" src="viewaccount.js"></script>
+		<link rel="stylesheet" href="index.css"></style>
+		<title>ARC Recreation Coordinator</title>
+	</head>
+    <body>
+		<div id="main">
+			<div class="phpdata" name="selectedNeed" id="selectedNeed"></div>
+			<div id="top">
+				<img id="headerimage" src="Header.png"><img>
+				<img src="Logo.png"></img>
+				<div id="header">
+					<ul id="navigation">
+						<li><a href="index.php">Home</a></li>
+						<li><a href="about.php">About</a></li>
+						<li><a href="index.php">Activities</a></li>
+						<li><a href="reserve.php">Reservations</a></li>
+					</ul>
+					<ul id="account">
+						<?php if (array_key_exists('netId', $_SESSION)): ?>
+							<li><a href="logout.php">Log Out</a></li>
+							<li><a href="viewAccount.php"><?php echo $_SESSION['netId']; ?></a></li>
+						<?php else: ?>
+							<li><a href="signin.php">Log In</a></li>
+							<li><a href="signup.php">Join</a></li>
+						<?php endif; ?>
+					</ul>
+				</div>
+			</div>
+			<div id="body">
+				<div id="pagetitle">Your Workout</div>
+				<div id="content">
+					<?php
+session_start();
 
 if (array_key_exists('goals', $_SESSION)) {
     $goals = $_SESSION['goals'];
-
-    for ($i = 0; $i < count($goals); $i++) {
-        $goals[$i] = "'" . $goals[$i] . "'";
+    $purpose = "(";
+    for ($i = 0; $i < count($_SESSION['goals']); $i++) {
+        $purpose = $purpose . $_SESSION['goals'][$i];
+        if ($i < count($_SESSION['goals']) - 1) {
+            $purpose = $purpose . ",";
+        }
     }
-
-    $clause = implode(',', $goals);
+    $purpose = $purpose . ")";
 
     $mysqli = new mysqli("puglies2.web.engr.illinois.edu", "puglies2_tbd4", "arcarctbd4", "puglies2_arc");
     if ($mysqli->connect_errno) {
         echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
 
-    if (!($stmt = $mysqli->prepare("SELECT EquipId, Location.EquipName, Building, Floor FROM Location INNER JOIN Function ON Location.EquipName = Function.EquipName WHERE Function.Purpose IN (" . $clause . ") ORDER BY Building, Floor"))) {
+    if (!($stmt = $mysqli->prepare("SELECT EquipId, EquipName, Building, Floor FROM Location INNER JOIN Function ON Location.EquipName = Function.EquipName WHERE Function.Purpose IN ? ORDER BY Building, Floor"))) {
         echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+    }
+
+    if (!$stmt->bind_param("s", $purpose)) {
+        echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
     }
 
     if (!$stmt->execute()) {
@@ -34,14 +77,15 @@ if (array_key_exists('goals', $_SESSION)) {
     }
 
     if (count($possible) <= 5) {
-        echo "Use <table>";
+        echo "Use ";
         for ($i = 0; $i < count($possible); $i++) {
-            echo "<tr><td>" . $possible[$i][1] . " in " . $possible[$i][2] . " on " . $possible[$i][3] . "</td></tr>";
+            echo $possible[$i][1] . " in " . $possible[$i][2] . " on " . $possible[$i][3];
+            if ($i < count($possible) - 1) {
+                echo ", ";
+            }
         }
-        echo "</table>";
     }
     else {
-        echo "Use <table>";
         $pickedBuilding = $possible[0][2];
         $pickedFloor = $possible[0][3];
 
@@ -80,24 +124,12 @@ if (array_key_exists('goals', $_SESSION)) {
             if (count($picked) < 5) {
                 shuffle($possible);
                 for ($i = 0; $i < 5; $i++) {
-                    echo "<tr><td>" . $possible[$i][1] . " in " . $possible[$i][2] . " on " . $possible[$i][3] . "</td></tr>";
+                    echo $possible[$i][1] . " in " . $possible[$i][2] . " on " . $possible[$i][3];
+                    if ($i < count($possible) - 1) {
+                        echo ", ";
+                    }
                 }
-                echo "</table>";
             }
-            else {
-                for ($i = 0; $i < 5; $i++) {
-                    shuffle($picked);
-                    echo "<tr><td>" . $picked[$i][1] . " in " . $picked[$i][2] . " on " . $picked[$i][3] . "</td></tr>";
-                }
-                echo "</table>";
-            }
-        }
-        else {
-            for ($i = 0; $i < 5; $i++) {
-                shuffle($picked);
-                echo "<tr><td>" . $picked[$i][1] . " in " . $picked[$i][2] . " on " . $picked[$i][3] . "</td></tr>";
-            }
-            echo "</table>";
         }
     }
 
@@ -105,3 +137,9 @@ if (array_key_exists('goals', $_SESSION)) {
     $mysqli->close();
 }
 ?>
+				</div>
+				</div>
+			</div>
+		</div>
+    </body>
+</html>
