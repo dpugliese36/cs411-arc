@@ -16,7 +16,9 @@
     $sql_time_check = "SELECT StartTime, EndTime, RoomID FROM Reservation WHERE(('" . $startTime . "' BETWEEN StartTime AND EndTime) OR ('" . $endTime . "' BETWEEN StartTime AND EndTime)) AND (RoomID ='" . $roomID . "');";
     $currentDate=date_create("2016-04-21");
 
-    if ($mysqli->query($sql)->fetch_row()[0] < 30 && $mysqli->query($sql_time_check)->fetch_row()[0] == NULL) {
+    $reservations = $mysqli->query($sql_time_check)->fetch_row()[0];
+
+    if ($mysqli->query($sql)->fetch_row()[0] < 30 && $reservations == NULL) {
         echo "hello worlds \n";
         // $formDate = strtotime('d-m-Y',$startTime);
         // $date = date('d-m-Y', $formDate);
@@ -24,7 +26,7 @@
         // echo $diff->format("%R%a days");
         //var_dump($mysqli->query($sql)->fetch_row()[0]);
         echo "yes";
-        var_dump($mysqli->query($sql_time_check)->fetch_row()[0]);
+        var_dump($reservations);
         echo "yes";
         if (!($stmt = $mysqli->prepare("INSERT INTO Reservation(StartTime, EndTime, netID, RoomID)"
                 . " VALUES (?, ?, ?, ?)"))) {
@@ -43,7 +45,7 @@
     } else {
         if($mysqli->query($sql)->fetch_row()[0] >= 30)
             echo "Sorry, you can only have 2 active reservations at any given time";
-        else if($mysqli->query($sql_time_check)->fetch_row()[0] != NULL)
+        else if($reservations != NULL)
             echo "Sorry, somebody else already has that room reserved at that time.";
     }
 
