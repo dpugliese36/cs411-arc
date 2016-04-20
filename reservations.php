@@ -36,7 +36,7 @@
                 . " VALUES (?, ?, ?, ?)"))) {
             echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
         }
-        if (!$stmt->bind_param("ssss", $startTime, $endTime, $studentNetID, $roomID)) {
+        if (!$stmt->bind_param("ssss", $startDate, $endDate, $studentNetID, $roomID)) {
         echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
         }
 
