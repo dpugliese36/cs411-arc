@@ -16,7 +16,7 @@
     $sql_time_check = "SELECT StartTime, EndTime, RoomID FROM Reservation WHERE'" . $startTime . "'BETWEEN StartTime AND EndTime OR'" . $endTime . "'BETWEEN StartTime AND EndTime AND RoomID ='" . $roomID . "';";
     $currentDate=date_create("2016-04-21");
 
-    if ($mysqli->query($sql)->fetch_row()[0] < 3 || true) {
+    if ($mysqli->query($sql)->fetch_row()[0] < 3 && $mysqli->query($sql_time_check)->fetch_row()[0] == NULL) {
         echo "hello worlds \n";
         // $formDate = strtotime('d-m-Y',$startTime);
         // $date = date('d-m-Y', $formDate);
@@ -41,7 +41,10 @@
             echo "Reservation made successfully!";
         }
     } else {
-    echo "Sorry, too many reservations.";
+        if($mysqli->query($sql)->fetch_row()[0] >= 3)
+            echo "Sorry, you can only have 2 active reservations at any given time";
+        else if($mysqli->query($sql_time_check)->fetch_row()[0] != NULL)
+            echo "Sorry, somebody else already has that room reserved at that time.";
     }
 
 ?>
