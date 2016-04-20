@@ -37,13 +37,11 @@ if (array_key_exists('goals', $_SESSION)) {
         echo "Use <table>";
         for ($i = 0; $i < count($possible); $i++) {
             echo "<tr><td>" . $possible[$i][1] . " in " . $possible[$i][2] . " on " . $possible[$i][3] . "</td></tr>";
-            if ($i < count($possible) - 1) {
-                echo ", ";
-            }
         }
+        echo "</table>";
     }
     else {
-        echo "Use ";
+        echo "Use <table>";
         $pickedBuilding = $possible[0][2];
         $pickedFloor = $possible[0][3];
 
@@ -83,29 +81,23 @@ if (array_key_exists('goals', $_SESSION)) {
                 shuffle($possible);
                 for ($i = 0; $i < 5; $i++) {
                     echo "<tr><td>" . $possible[$i][1] . " in " . $possible[$i][2] . " on " . $possible[$i][3] . "</td></tr>";
-                    if ($i < count($possible) - 1) {
-                        echo ", ";
-                    }
                 }
+                echo "</table>";
             }
             else {
                 for ($i = 0; $i < 5; $i++) {
                     shuffle($picked);
                     echo "<tr><td>" . $picked[$i][1] . " in " . $picked[$i][2] . " on " . $picked[$i][3] . "</td></tr>";
-                    if ($i < count($picked) - 1) {
-                        echo ", ";
-                    }
                 }
+                echo "</table>";
             }
         }
         else {
             for ($i = 0; $i < 5; $i++) {
                 shuffle($picked);
                 echo "<tr><td>" . $picked[$i][1] . " in " . $picked[$i][2] . " on " . $picked[$i][3] . "</td></tr>";
-                if ($i < count($picked) - 1) {
-                    echo ", ";
-                }
             }
+            echo "</table>";
         }
     }
 
