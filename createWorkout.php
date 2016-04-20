@@ -50,7 +50,7 @@ if (array_key_exists('goals', $_SESSION)) {
         echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
 
-    if (!($stmt = $mysqli->prepare("SELECT EquipId, EquipName, Building, Floor FROM Location INNER JOIN Function ON Location.EquipName = Function.EquipName WHERE Function.Purpose IN " . $clause ." ORDER BY Building, Floor"))) {
+    if (!($stmt = $mysqli->prepare("SELECT EquipId, EquipName, Building, Floor FROM Location INNER JOIN Function ON Location.EquipName = Function.EquipName WHERE Function.Purpose IN (" . $clause . ") ORDER BY Building, Floor"))) {
         echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
     }
 
