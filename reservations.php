@@ -13,7 +13,7 @@
     }
 
     $sql = "SELECT COUNT(netID) FROM Reservation WHERE netID='" . $studentNetID . "';";
-    $sql_time_check = "SELECT StartTime, EndTime, RoomID FROM Reservation WHERE(('" . $startTime . "'BETWEEN StartTime AND EndTime) OR ('" . $endTime . "'BETWEEN StartTime AND EndTime)) AND (RoomID ='" . $roomID . "');";
+    $sql_time_check = "SELECT StartTime, EndTime, RoomID FROM Reservation WHERE(('" . $startTime . "' BETWEEN StartTime AND EndTime) OR ('" . $endTime . "' BETWEEN StartTime AND EndTime)) AND (RoomID ='" . $roomID . "');";
     $currentDate=date_create("2016-04-21");
 
     if ($mysqli->query($sql)->fetch_row()[0] < 30 && $mysqli->query($sql_time_check)->fetch_row()[0] == NULL) {
